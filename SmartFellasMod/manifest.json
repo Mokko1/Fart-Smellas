@@ -1,0 +1,11 @@
+{
+    "Name": "Placeholder",
+    "Author": "SmartFellas",
+    "Description": "A mod",
+    "Version": "1.0.0",
+    "UniqueID": "SmartFellas.Placeholder",
+    "UpdateKeys": ["Nexus:"],
+    "ContentPackFor": {
+        "UniqueID": "Pathoschild.ContentPatcher"
+    }
+}
