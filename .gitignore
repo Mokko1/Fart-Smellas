@@ -1,0 +1,22 @@
+# Stardew Valley SMAPI C# Mod .gitignore
+
+# Build output directories
+/[Bb]in/
+/[Oo]bj/
+/[Dd]eploy/
+/[Mm]ods-deploy/
+
+# Visual Studio / IDE files
+*.suo
+*.user
+*.userprefs
+*.sln.docstates
+.vs/
+.idea/
+*.rsuser
+*.suo
+*.cache
+
+# Operating System files
+.DS_Store
+Thumbs.db
