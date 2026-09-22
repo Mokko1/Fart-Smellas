@@ -154,30 +154,33 @@ namespace SmartFellasMod
             }
         }
 
-        /// <summary>Raised after the player presses a button on the keyboard, controller, or mouse.</summary>
+        /// <summary>Raised after the player presses a button on the keyboard, controller, or mouse. This used for debugging.</summary>
         /// <param name="sender">The event sender.</param>
         /// <param name="e">The event data.</param>
         private void OnButtonPressed(object? sender, ButtonPressedEventArgs e)
         {
+            return;
 
-            if (!Context.IsWorldReady)
-                return;
+            //if (!Context.IsWorldReady)
+            //    return;
 
-            this.Monitor.Log($"{Game1.player.Name} pressed {e.Button}.", LogLevel.Info);
-
-            if (e.Button == SButton.Tab)
-                StartExampleQuest();
+            //if (e.Button == SButton.Tab)
+                //StartExampleQuest();
         }
 
-        private void StartExampleQuest()
+        /// <summary>
+        /// Start the initial quest once a message is read
+        /// </summary>
+        private void StartFirstQuest()
         {
             var exampleQuest = new Quest();
             exampleQuest.id.Value = "999";
             exampleQuest.questType.Value = 3;
 
-            exampleQuest.questTitle = "Cool Test Quest B)";
+            exampleQuest.questTitle = "Cool";
             exampleQuest.questDescription = "This is a very cool template quest";
             exampleQuest.moneyReward.Value = 500;
+            exampleQuest.currentObjective = "Do thing";
 
 
             Game1.player.questLog.Add(exampleQuest);
