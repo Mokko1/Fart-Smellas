@@ -11,6 +11,8 @@ namespace SmartFellasMod
     /// <summary>The mod entry point.</summary>
     internal sealed class ModEntry : Mod
     {
+
+
         /*********
         ** Public methods
         *********/
@@ -19,12 +21,117 @@ namespace SmartFellasMod
         public override void Entry(IModHelper helper)
         {
             helper.Events.Input.ButtonPressed += this.OnButtonPressed;
-        }
 
+            // subscribe into the game loop updates
+            helper.Events.GameLoop.UpdateTicked += OnUpdateTicked;
+            helper.Events.GameLoop.SaveLoaded += OnSaveLoaded;
+
+            // Register the console command
+            helper.ConsoleCommands.Add(
+                name: "set_oxygen",
+                documentation: "Sets the current oxygen deprivation level.\n\nUsage: set_oxygen <value>",
+                callback: this.HandleSetOxygen
+            );
+        }
+        
+
+
+
+        /*********
+        ** Private Fields
+        *********/
+
+        // tracks how much stamina the player had last tick
+        private float lastStamina;
+
+        // higher the less oxygen the player has access to, used to add more energy lost 
+        // its minimum is 0 and max is 1
+        private float oxygenDeprivation = 0;
+
+        private float OxygenDeprivation { get { return oxygenDeprivation; }
+            set {
+
+                //ensure oxygenDeprivation is assigned correctly
+                if (value >= 0 && value <= 1) {
+                    oxygenDeprivation = value;
+                } 
+            } }
 
         /*********
         ** Private methods
         *********/
+
+        /// <summary>
+        /// called once the save data for a game has been loaded
+        /// </summary>
+        /// <param name="sender">object that emitted the SaveLoaded event</param>
+        /// <param name="e"> event arguments </param>
+        private void OnSaveLoaded(object sender, SaveLoadedEventArgs e)
+        {
+            // initialize stamina tracking
+            lastStamina = Game1.player.Stamina;
+        }
+
+        /// <summary>
+        /// essentially, an update function called for every tick of the game
+        /// </summary>
+        /// <param name="sender"> object that emitted the UpdateTicked event</param>
+        /// <param name="e"> tick params </param>
+        private void OnUpdateTicked(object sender, UpdateTickedEventArgs e)
+        {
+            // Ignore updates if the player hasn't loaded in yet
+            if (!Context.IsWorldReady || Game1.player == null)
+                return;
+
+            AdjustStaminaForOxygen();
+        }
+
+        private void AdjustStaminaForOxygen()
+        {
+            float currentStamina = Game1.player.Stamina;
+
+            // Check if stamina decreased during this tick
+            if (currentStamina < lastStamina)
+            {
+                float energyLost = lastStamina - currentStamina;
+
+                // add additional energy loss if oxygenDeprivation is above 0
+                float adjustedLoss = energyLost * oxygenDeprivation;
+                Game1.player.Stamina -= adjustedLoss;
+
+                // Update tracker 
+                lastStamina = Game1.player.Stamina;
+            }
+            else
+            {
+                // Update tracker normally if stamina stayed the same or increased
+                lastStamina = currentStamina;
+            }
+        }
+
+
+        private void HandleSetOxygen(string command, string[] args)
+        {
+            // Verify the user provided an argument
+            if (args.Length == 0)
+            {
+                this.Monitor.Log("You must specify a float value. Example: set_oxygen 50.5", LogLevel.Error);
+                return;
+            }
+
+            // Try parsing the input to a float
+            if (float.TryParse(args[0], out float newValue))
+            {
+                // success
+                OxygenDeprivation = newValue;
+                this.Monitor.Log($"oxygenDeprivation successfully set to: {oxygenDeprivation}", LogLevel.Info);
+            }
+            else
+            {
+                this.Monitor.Log($"'{args[0]}' is not a valid float number.", LogLevel.Error);
+            }
+        }
+
         /// <summary>Raised after the player presses a button on the keyboard, controller, or mouse.</summary>
         /// <param name="sender">The event sender.</param>
         /// <param name="e">The event data.</param>
