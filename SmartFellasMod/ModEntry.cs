@@ -52,7 +52,7 @@ namespace SmartFellasMod
             set {
 
                 //ensure oxygenDeprivation is assigned correctly
-                if (value >= 0 && value <= 1) {
+                if (value >= 0 && value <= 2) {
                     oxygenDeprivation = value;
                 } 
             } }
@@ -115,7 +115,7 @@ namespace SmartFellasMod
             // Verify the user provided an argument
             if (args.Length == 0)
             {
-                this.Monitor.Log("You must specify a float value. Example: set_oxygen 50.5", LogLevel.Error);
+                this.Monitor.Log("You must specify a float value. Example: set_oxygen 0.5", LogLevel.Error);
                 return;
             }
 

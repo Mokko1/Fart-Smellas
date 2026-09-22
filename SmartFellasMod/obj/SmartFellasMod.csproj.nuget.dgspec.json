@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ben\\Documents\\GitHub\\Fart-Smellas\\SmartFellasMod\\SmartFellasMod.csproj": {}
+    "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Stardew Valley\\Fart-Smellas\\SmartFellasMod\\SmartFellasMod.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ben\\Documents\\GitHub\\Fart-Smellas\\SmartFellasMod\\SmartFellasMod.csproj": {
+    "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Stardew Valley\\Fart-Smellas\\SmartFellasMod\\SmartFellasMod.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ben\\Documents\\GitHub\\Fart-Smellas\\SmartFellasMod\\SmartFellasMod.csproj",
+        "projectUniqueName": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Stardew Valley\\Fart-Smellas\\SmartFellasMod\\SmartFellasMod.csproj",
         "projectName": "SmartFellasMod",
-        "projectPath": "C:\\Users\\Ben\\Documents\\GitHub\\Fart-Smellas\\SmartFellasMod\\SmartFellasMod.csproj",
-        "packagesPath": "C:\\Users\\Ben\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ben\\Documents\\GitHub\\Fart-Smellas\\SmartFellasMod\\obj\\",
+        "projectPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Stardew Valley\\Fart-Smellas\\SmartFellasMod\\SmartFellasMod.csproj",
+        "packagesPath": "C:\\Users\\Fig\\.nuget\\packages\\",
+        "outputPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Stardew Valley\\Fart-Smellas\\SmartFellasMod\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Ben\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Fig\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -43,8 +39,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.300"
+        }
       },
       "frameworks": {
         "net6.0": {
@@ -71,7 +66,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.309\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
