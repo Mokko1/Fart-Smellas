@@ -38,19 +38,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Fig\\.nuget\\packages\\": {}
+    "C:\\Users\\yusef\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Stardew Valley\\Fart-Smellas\\SmartFellasMod\\SmartFellasMod.csproj",
+      "projectUniqueName": "C:\\Users\\yusef\\Documents\\Github\\Fart-Smellas\\SmartFellasMod\\SmartFellasMod.csproj",
       "projectName": "SmartFellasMod",
-      "projectPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Stardew Valley\\Fart-Smellas\\SmartFellasMod\\SmartFellasMod.csproj",
-      "packagesPath": "C:\\Users\\Fig\\.nuget\\packages\\",
-      "outputPath": "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Stardew Valley\\Fart-Smellas\\SmartFellasMod\\obj\\",
+      "projectPath": "C:\\Users\\yusef\\Documents\\Github\\Fart-Smellas\\SmartFellasMod\\SmartFellasMod.csproj",
+      "packagesPath": "C:\\Users\\yusef\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\yusef\\Documents\\Github\\Fart-Smellas\\SmartFellasMod\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Fig\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\yusef\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -75,7 +75,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net6.0": {
@@ -97,12 +98,26 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.36, 6.0.36]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.36, 6.0.36]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[6.0.36, 6.0.36]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.314\\RuntimeIdentifierGraph.json"
       }
     }
   }
