@@ -15,6 +15,9 @@ namespace SmartFellasMod
         /*********
         ** Public methods
         *********/
+        /// <summary>
+        /// Needed for the file, not used here
+        /// </summary>
         public override void Entry(IModHelper helper) {}
             
 
@@ -23,7 +26,10 @@ namespace SmartFellasMod
         *********/
 
 
-        private void StartExampleQuest()
+        /// <summary>
+        /// Start 
+        /// </summary>
+        private void StartInitialQuest()
         {
             var exampleQuest = new Quest();
             exampleQuest.id.Value = "999";
