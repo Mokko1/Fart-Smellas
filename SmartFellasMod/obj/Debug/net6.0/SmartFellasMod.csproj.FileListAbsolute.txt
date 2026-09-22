@@ -16,3 +16,12 @@ C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\mods\Fart-Smellas\S
 C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\mods\Fart-Smellas\SmartFellasMod\obj\Debug\net6.0\SmartFellasMod.csproj.CoreCompileInputs.cache
 C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\mods\Fart-Smellas\SmartFellasMod\obj\Debug\net6.0\SmartFellasMod.sourcelink.json
 C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\mods\Fart-Smellas\SmartFellasMod\obj\Debug\net6.0\SmartFellasMod.dll
+C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Fart-Smellas\SmartFellasMod\bin\Debug\net6.0\SmartFellasMod.deps.json
+C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Fart-Smellas\SmartFellasMod\bin\Debug\net6.0\SmartFellasMod.dll
+C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Fart-Smellas\SmartFellasMod\obj\Debug\net6.0\SmartFellasMod.csproj.AssemblyReference.cache
+C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Fart-Smellas\SmartFellasMod\obj\Debug\net6.0\SmartFellasMod.GeneratedMSBuildEditorConfig.editorconfig
+C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Fart-Smellas\SmartFellasMod\obj\Debug\net6.0\SmartFellasMod.AssemblyInfoInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Fart-Smellas\SmartFellasMod\obj\Debug\net6.0\SmartFellasMod.AssemblyInfo.cs
+C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Fart-Smellas\SmartFellasMod\obj\Debug\net6.0\SmartFellasMod.csproj.CoreCompileInputs.cache
+C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Fart-Smellas\SmartFellasMod\obj\Debug\net6.0\SmartFellasMod.sourcelink.json
+C:\Program Files (x86)\Steam\steamapps\common\Stardew Valley\Fart-Smellas\SmartFellasMod\obj\Debug\net6.0\SmartFellasMod.dll

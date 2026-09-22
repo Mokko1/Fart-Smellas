@@ -32,10 +32,28 @@ namespace SmartFellasMod
                 documentation: "Sets the current oxygen deprivation level.\n\nUsage: set_oxygen <value>",
                 callback: this.HandleSetOxygen
             );
+
+            // used to teleport to new area
+            helper.ConsoleCommands.Add("player_warp_test", "Warps the player to your custom area.\n\nUsage: player_warp_test", this.WarpToCustomArea);
+
         }
-        
 
 
+        private void WarpToCustomArea(string command, string[] args)
+        {
+            // Check if a save is loaded so the game doesn't crash
+            if (!Context.IsWorldReady)
+            {
+                this.Monitor.Log("You must load a save before using this command.", LogLevel.Warn);
+                return;
+            }
+
+            // Replace "YourCustomMapName" with the string ID of your custom area
+            // and provide destination tile coordinates (e.g., X: 5, Y: 5)
+            Game1.warpFarmer("SmartFellas.Ascension_test", 5, 5, false);
+
+            this.Monitor.Log("Warped to custom area!", LogLevel.Info);
+        }
 
         /*********
         ** Private Fields
@@ -101,6 +119,10 @@ namespace SmartFellasMod
 
                 // Update tracker 
                 lastStamina = Game1.player.Stamina;
+
+                // show how much energy they have, used to track how much is lost
+                this.Monitor.Log($"Energy: {lastStamina}", LogLevel.Info);
+
             }
             else
             {
@@ -112,7 +134,7 @@ namespace SmartFellasMod
 
         private void HandleSetOxygen(string command, string[] args)
         {
-            // Verify the user provided an argument
+            // check the user provided an argument
             if (args.Length == 0)
             {
                 this.Monitor.Log("You must specify a float value. Example: set_oxygen 0.5", LogLevel.Error);
