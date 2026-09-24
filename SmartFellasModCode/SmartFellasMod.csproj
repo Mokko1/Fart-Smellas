@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Pathoschild.Stardew.ModBuildConfig" Version="4.4.0" />
+  </ItemGroup>
+
+  <Target Name="CopyContentPack" AfterTargets="Build">
+	<ItemGroup>
+	  <ContentPackFiles Include="$(MSBuildProjectDirectory)\..\SmartFellasModAssets\**\*.*" />
+	</ItemGroup>
+	  <Copy SourceFiles="@(ContentPackFiles)"
+		DestinationFiles="$(GameModsPath)\SmartFellasModAssets\%(RecursiveDir)%(Filename)%(Extension)"
+		SkipUnchangedFiles="true" />
+  </Target>
+
+</Project>

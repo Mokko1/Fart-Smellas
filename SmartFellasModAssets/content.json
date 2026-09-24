@@ -1,0 +1,36 @@
+{
+  "Format": "2.9.0",
+  "Changes": [
+    {
+      "Action": "Load",
+      "Target": "Portraits/Abigail",
+      "FromFile": "assets/teamImage.png"
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/mail",
+      "Entries": {
+        "ascension_mine_letter": "Hello @,^This is the mine letter"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Quests",
+      "Entries": {
+        "StartingQuest": "Location/Cool Test Quest B)/This is a very cool template quest/Eat a bean./-1/-1/100/false",
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/TriggerActions",
+      "Entries": {
+        "Ascension_GiveStartingQuest": {
+          "Id": "Ascension_GiveStartingQuest",
+          "Trigger": "DayStarted",
+          "Condition": "PLAYER_HAS_MAIL Current ascension_mine_letter",
+          "Actions": [ "AddQuest StartingQuest" ]
+        }
+      }
+    }
+  ]
+}

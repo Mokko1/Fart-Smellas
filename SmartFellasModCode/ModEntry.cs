@@ -1,17 +1,17 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewModdingAPI.Utilities;
 using StardewValley;
+using StardewValley.Locations;
 using StardewValley.Quests;
+using System;
 
 namespace SmartFellasMod
 {
     /// <summary>The mod entry point.</summary>
     internal sealed class ModEntry : Mod
     {
-
 
         /*********
         ** Public methods
@@ -23,6 +23,8 @@ namespace SmartFellasMod
             // subscribe into the game loop updates
             helper.Events.GameLoop.UpdateTicked += OnUpdateTicked;
             helper.Events.GameLoop.SaveLoaded += OnSaveLoaded;
+            helper.Events.Player.Warped += OnPlayerWarped;
+
 
             // Register the console command
             helper.ConsoleCommands.Add(
@@ -36,6 +38,10 @@ namespace SmartFellasMod
 
         }
 
+        private void OnPlayer_Warped(object? sender, WarpedEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
 
         private void WarpToCustomArea(string command, string[] args)
         {
@@ -149,6 +155,24 @@ namespace SmartFellasMod
             else
             {
                 this.Monitor.Log($"'{args[0]}' is not a valid float number.", LogLevel.Error);
+            }
+        }
+
+        /// <summary>
+        /// Runs anytime the player is warped to a new location (travels there)
+        /// Triggered to check for sending mail to start the mod questline.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="warpedEvent">The event that stores the arguments for the player being warped</param>
+        public void OnPlayerWarped(object? sender, WarpedEventArgs warpedEvent)
+        {
+                        Game1.player.mailbox.Add("ascension_mine_letter");
+            if (warpedEvent.NewLocation is MineShaft mine)
+            {
+                // When the player reaches the tenth level in the mines, send the mail to start the quest
+                if (mine.mineLevel == 10)
+                    if (!Game1.player.hasOrWillReceiveMail("ascension_mine_letter"))
+                        return;
             }
         }
     }

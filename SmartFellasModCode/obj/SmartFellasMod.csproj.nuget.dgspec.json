@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ben\\Documents\\GitHub\\Fart-Smellas\\SmartFellasMod\\SmartFellasMod.csproj": {}
+    "C:\\Users\\Ben\\Documents\\GitHub\\Fart-Smellas\\SmartFellasModCode\\SmartFellasMod.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ben\\Documents\\GitHub\\Fart-Smellas\\SmartFellasMod\\SmartFellasMod.csproj": {
+    "C:\\Users\\Ben\\Documents\\GitHub\\Fart-Smellas\\SmartFellasModCode\\SmartFellasMod.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ben\\Documents\\GitHub\\Fart-Smellas\\SmartFellasMod\\SmartFellasMod.csproj",
+        "projectUniqueName": "C:\\Users\\Ben\\Documents\\GitHub\\Fart-Smellas\\SmartFellasModCode\\SmartFellasMod.csproj",
         "projectName": "SmartFellasMod",
-        "projectPath": "C:\\Users\\Ben\\Documents\\GitHub\\Fart-Smellas\\SmartFellasMod\\SmartFellasMod.csproj",
+        "projectPath": "C:\\Users\\Ben\\Documents\\GitHub\\Fart-Smellas\\SmartFellasModCode\\SmartFellasMod.csproj",
         "packagesPath": "C:\\Users\\Ben\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ben\\Documents\\GitHub\\Fart-Smellas\\SmartFellasMod\\obj\\",
+        "outputPath": "C:\\Users\\Ben\\Documents\\GitHub\\Fart-Smellas\\SmartFellasModCode\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
