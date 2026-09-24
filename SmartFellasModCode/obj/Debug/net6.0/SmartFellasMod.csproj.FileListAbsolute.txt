@@ -34,3 +34,12 @@ C:\Users\Ben\Documents\GitHub\Fart-Smellas\SmartFellasModCode\obj\Debug\net6.0\S
 C:\Users\Ben\Documents\GitHub\Fart-Smellas\SmartFellasModCode\obj\Debug\net6.0\SmartFellasMod.csproj.CoreCompileInputs.cache
 C:\Users\Ben\Documents\GitHub\Fart-Smellas\SmartFellasModCode\obj\Debug\net6.0\SmartFellasMod.sourcelink.json
 C:\Users\Ben\Documents\GitHub\Fart-Smellas\SmartFellasModCode\obj\Debug\net6.0\SmartFellasMod.dll
+C:\Users\yusef\Documents\Github\Fart-Smellas\SmartFellasModCode\bin\Debug\net6.0\SmartFellasMod.deps.json
+C:\Users\yusef\Documents\Github\Fart-Smellas\SmartFellasModCode\bin\Debug\net6.0\SmartFellasMod.dll
+C:\Users\yusef\Documents\Github\Fart-Smellas\SmartFellasModCode\obj\Debug\net6.0\SmartFellasMod.csproj.AssemblyReference.cache
+C:\Users\yusef\Documents\Github\Fart-Smellas\SmartFellasModCode\obj\Debug\net6.0\SmartFellasMod.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\yusef\Documents\Github\Fart-Smellas\SmartFellasModCode\obj\Debug\net6.0\SmartFellasMod.AssemblyInfoInputs.cache
+C:\Users\yusef\Documents\Github\Fart-Smellas\SmartFellasModCode\obj\Debug\net6.0\SmartFellasMod.AssemblyInfo.cs
+C:\Users\yusef\Documents\Github\Fart-Smellas\SmartFellasModCode\obj\Debug\net6.0\SmartFellasMod.csproj.CoreCompileInputs.cache
+C:\Users\yusef\Documents\Github\Fart-Smellas\SmartFellasModCode\obj\Debug\net6.0\SmartFellasMod.sourcelink.json
+C:\Users\yusef\Documents\Github\Fart-Smellas\SmartFellasModCode\obj\Debug\net6.0\SmartFellasMod.dll

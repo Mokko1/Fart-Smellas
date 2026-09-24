@@ -1,0 +1,46 @@
+{
+  "Format": "2.9.0",
+  "Changes": [
+    {
+      "Action": "EditData",
+      "Target": "Data/Locations",
+      "Entries": {
+        "SmartFellas.Ascension_test": {
+          "CreateOnLoad": {
+            "MapPath": "Maps/SmartFellas.Ascension_test",
+            "Type": "StardewValley.GameLocation"
+          }
+        }
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Locations",
+      "Entries": {
+        "SmartFellas.Ascension_test": {
+          "CreateOnLoad": {
+            "MapPath": "Maps/SmartFellas.Map_buffer",
+            "Type": "StardewValley.GameLocation"
+          }
+        }
+      }
+    },
+    {
+      "Action": "Load",
+      "Target": "Portraits/Abigail",
+      "FromFile": "assets/teamImage.png"
+    },
+    {
+      "Action": "Load",
+      "Target": "Maps/SmartFellas.Ascension_test",
+      "FromFile": "maps/test.tmx"
+    },
+    {
+      "Action": "Load",
+      "Target": "Maps/SmartFellas.Map_buffer",
+      "FromFile": "assets/Maps/buffer.tmx"
+    },
+    {
+    }
+  ]
+}

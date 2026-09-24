@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ben\\Documents\\GitHub\\Fart-Smellas\\SmartFellasModCode\\SmartFellasMod.csproj": {}
+    "C:\\Users\\yusef\\Documents\\Github\\Fart-Smellas\\SmartFellasModCode\\SmartFellasMod.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ben\\Documents\\GitHub\\Fart-Smellas\\SmartFellasModCode\\SmartFellasMod.csproj": {
+    "C:\\Users\\yusef\\Documents\\Github\\Fart-Smellas\\SmartFellasModCode\\SmartFellasMod.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ben\\Documents\\GitHub\\Fart-Smellas\\SmartFellasModCode\\SmartFellasMod.csproj",
+        "projectUniqueName": "C:\\Users\\yusef\\Documents\\Github\\Fart-Smellas\\SmartFellasModCode\\SmartFellasMod.csproj",
         "projectName": "SmartFellasMod",
-        "projectPath": "C:\\Users\\Ben\\Documents\\GitHub\\Fart-Smellas\\SmartFellasModCode\\SmartFellasMod.csproj",
-        "packagesPath": "C:\\Users\\Ben\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ben\\Documents\\GitHub\\Fart-Smellas\\SmartFellasModCode\\obj\\",
+        "projectPath": "C:\\Users\\yusef\\Documents\\Github\\Fart-Smellas\\SmartFellasModCode\\SmartFellasMod.csproj",
+        "packagesPath": "C:\\Users\\yusef\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\yusef\\Documents\\Github\\Fart-Smellas\\SmartFellasModCode\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Ben\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\yusef\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -66,26 +62,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[6.0.36, 6.0.36]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[6.0.36, 6.0.36]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[6.0.36, 6.0.36]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.309\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.314\\RuntimeIdentifierGraph.json"
         }
       }
     }
