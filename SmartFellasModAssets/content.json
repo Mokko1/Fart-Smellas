@@ -19,6 +19,11 @@
       "Entries": {
         "StartingQuest": "Location/Cool Test Quest B)/This is a very cool template quest/Eat a bean./-1/-1/100/false",
       }
+    },
+    {
+      "Action": "Load",
+      "Target": "Maps/Backwoods",
+      "FromFile": "maps/Backwoods.tmx"
     }
   ]
 }
