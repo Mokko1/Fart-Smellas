@@ -1,0 +1,12 @@
+{
+  "Name": "AscensionAssets",
+  "Author": "SmartFellas",
+  "Description": "The assets for a mod for Stardew Valley",
+  "Version": "1.0.0",
+  "UniqueID": "SmartFellas.AscensionAssets",
+  "ContentPackFor": {
+    "UniqueID": "Pathoschild.ContentPatcher"
+  },
+  "UpdateKeys": [ "Nexus:" ]
+
+}

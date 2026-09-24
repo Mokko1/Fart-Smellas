@@ -1,17 +1,17 @@
-﻿using System;
-using Microsoft.Xna.Framework;
+﻿using Microsoft.Xna.Framework;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewModdingAPI.Utilities;
 using StardewValley;
+using StardewValley.Locations;
 using StardewValley.Quests;
+using System;
 
 namespace SmartFellasMod
 {
     /// <summary>The mod entry point.</summary>
     internal sealed class ModEntry : Mod
     {
-
 
         /*********
         ** Public methods
@@ -20,11 +20,11 @@ namespace SmartFellasMod
         /// <param name="helper">Provides simplified APIs for writing mods.</param>
         public override void Entry(IModHelper helper)
         {
-            helper.Events.Input.ButtonPressed += this.OnButtonPressed;
-
             // subscribe into the game loop updates
             helper.Events.GameLoop.UpdateTicked += OnUpdateTicked;
             helper.Events.GameLoop.SaveLoaded += OnSaveLoaded;
+            helper.Events.Player.Warped += OnPlayerWarped;
+
 
             // Register the console command
             helper.ConsoleCommands.Add(
@@ -37,7 +37,6 @@ namespace SmartFellasMod
             helper.ConsoleCommands.Add("player_warp_test", "Warps the player to your custom area.\n\nUsage: player_warp_test", this.WarpToCustomArea);
 
         }
-
 
         private void WarpToCustomArea(string command, string[] args)
         {
@@ -154,37 +153,21 @@ namespace SmartFellasMod
             }
         }
 
-        /// <summary>Raised after the player presses a button on the keyboard, controller, or mouse. This used for debugging.</summary>
-        /// <param name="sender">The event sender.</param>
-        /// <param name="e">The event data.</param>
-        private void OnButtonPressed(object? sender, ButtonPressedEventArgs e)
-        {
-            return;
-
-            //if (!Context.IsWorldReady)
-            //    return;
-
-            //if (e.Button == SButton.Tab)
-                //StartExampleQuest();
-        }
-
         /// <summary>
-        /// Start the initial quest once a message is read
+        /// Runs anytime the player is warped to a new location (travels there)
+        /// Triggered to check for sending mail to start the mod questline.
         /// </summary>
-        private void StartFirstQuest()
+        /// <param name="sender"></param>
+        /// <param name="warpedEvent">The event that stores the arguments for the player being warped</param>
+        public void OnPlayerWarped(object? sender, WarpedEventArgs warpedEvent)
         {
-            var exampleQuest = new Quest();
-            exampleQuest.id.Value = "999";
-            exampleQuest.questType.Value = 3;
-
-            exampleQuest.questTitle = "Cool";
-            exampleQuest.questDescription = "This is a very cool template quest";
-            exampleQuest.moneyReward.Value = 500;
-            exampleQuest.currentObjective = "Do thing";
-
-
-            Game1.player.questLog.Add(exampleQuest);
+            if (warpedEvent.NewLocation is MineShaft mine)
+            {
+                // When the player reaches the tenth level in the mines, send the mail to start the quest
+                if (mine.mineLevel == 10)
+                    if (!Game1.player.hasOrWillReceiveMail("ascension_mine_letter"))
+                        Game1.addMailForTomorrow("ascension_mine_letter");
+            }
         }
-
     }
 }

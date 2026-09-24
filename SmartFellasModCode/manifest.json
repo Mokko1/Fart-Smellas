@@ -1,9 +1,10 @@
 {
-  "Name": "Ascension",
+  "Name": "AscensionCode",
   "Author": "SmartFellas",
   "Description": "A mod for Stardew Valley",
   "Version": "1.0.0",
-  "UniqueID": "SmartFellas.Ascension",
-  "EntryDll":  "SmartFellasMod.dll",
+  "UniqueID": "SmartFellas.AscensionCode",
+  "EntryDll": "SmartFellasMod.dll",
   "UpdateKeys": [ "Nexus:" ]
+
 }
