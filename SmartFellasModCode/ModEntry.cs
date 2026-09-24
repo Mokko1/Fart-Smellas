@@ -166,13 +166,12 @@ namespace SmartFellasMod
         /// <param name="warpedEvent">The event that stores the arguments for the player being warped</param>
         public void OnPlayerWarped(object? sender, WarpedEventArgs warpedEvent)
         {
-                        Game1.player.mailbox.Add("ascension_mine_letter");
             if (warpedEvent.NewLocation is MineShaft mine)
             {
                 // When the player reaches the tenth level in the mines, send the mail to start the quest
                 if (mine.mineLevel == 10)
                     if (!Game1.player.hasOrWillReceiveMail("ascension_mine_letter"))
-                        return;
+                        Game1.addMailForTomorrow("ascension_mine_letter");
             }
         }
     }
