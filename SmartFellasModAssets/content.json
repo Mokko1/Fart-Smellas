@@ -1,0 +1,24 @@
+{
+  "Format": "2.9.0",
+  "Changes": [
+    {
+      "Action": "Load",
+      "Target": "Portraits/Abigail",
+      "FromFile": "assets/teamImage.png"
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/mail",
+      "Entries": {
+        "ascension_mine_letter": "Hey @, I hear you’ve become quite familiar with the pelican town mines, up for something a little more dangerous. Join the Ascension Expedition to the mountains to experience stardew valley at its Coldest. Come to the mountains northwest of the farm when ready.^Joseph%item quest StartingQuest true %% "
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Quests",
+      "Entries": {
+        "StartingQuest": "Location/Cool Test Quest B)/This is a very cool template quest/Eat a bean./-1/-1/100/false",
+      }
+    }
+  ]
+}
