@@ -38,11 +38,6 @@ namespace SmartFellasMod
 
         }
 
-        private void OnPlayer_Warped(object? sender, WarpedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         private void WarpToCustomArea(string command, string[] args)
         {
             // Check if a save is loaded so the game doesn't crash
