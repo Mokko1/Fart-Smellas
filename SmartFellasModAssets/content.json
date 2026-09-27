@@ -10,7 +10,7 @@
       "Action": "EditData",
       "Target": "Data/mail",
       "Entries": {
-        "ascension_mine_letter": "Hello @,^This is the mine letter%item quest StartingQuest true %% "
+        "ascension_mine_letter": "Hey @, I hear you’ve become quite familiar with the pelican town mines, up for something a little more dangerous. Join the Ascension Expedition to the mountains to experience stardew valley at its Coldest. Come to the mountains northwest of the farm when ready.^Joseph%item quest StartingQuest true %% "
       }
     },
     {
