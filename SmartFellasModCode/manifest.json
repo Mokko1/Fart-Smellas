@@ -5,6 +5,11 @@
   "Version": "1.0.0",
   "UniqueID": "SmartFellas.AscensionCode",
   "EntryDll": "SmartFellasMod.dll",
-  "UpdateKeys": [ "Nexus:" ]
-
+  "UpdateKeys": [ "Nexus:" ],
+  "Dependencies": [
+    {
+      "UniqueID": "Pathoschild.ContentPatcher",
+      "IsRequired": true
+    }
+  ]
 }

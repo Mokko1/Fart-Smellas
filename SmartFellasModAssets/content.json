@@ -31,6 +31,11 @@
       "FromFile": "Maps/placeholder_1.tmx"
     },
     {
+      "Action": "Load",
+      "Target": "Maps/{{ModId}}_placeholder_2",
+      "FromFile": "Maps/placeholder_2.tmx"
+    },
+    {
       "Action": "EditData",
       "Target": "Data/Locations",
       "Entries": {
@@ -41,6 +46,18 @@
         }
       }
 
+
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Locations",
+      "Entries": {
+        "{{ModId}}_Climb": {
+          "CreateOnLoad": {
+            "MapPath": "Maps/{{ModId}}_placeholder_2"
+          }
+        }
+      }
     }
 
   ]

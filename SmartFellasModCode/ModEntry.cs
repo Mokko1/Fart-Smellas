@@ -38,6 +38,8 @@ namespace SmartFellasMod
 
         }
 
+        private const string ContentPackId = "SmartFellas.AscensionCode.Content";
+
         private void WarpToCustomArea(string command, string[] args)
         {
             // Check if a save is loaded so the game doesn't crash
@@ -47,9 +49,16 @@ namespace SmartFellasMod
                 return;
             }
 
-            Game1.warpFarmer("BaseCamp", 5, 5, false);
+            string locationName = $"{ContentPackId}_BaseCamp";
 
-            this.Monitor.Log("Warped to custom area!", LogLevel.Info);
+            if (Game1.getLocationFromName(locationName) == null)
+            {
+                this.Monitor.Log($"Could not find location '{locationName}'. Is your Content Patcher pack loaded correctly?", LogLevel.Error);
+                return;
+            }
+
+            Game1.warpFarmer(locationName, 5, 5, false);
+            this.Monitor.Log($"Warped to {locationName}!", LogLevel.Info);
         }
 
         /*********
