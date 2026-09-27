@@ -17,13 +17,31 @@
       "Action": "EditData",
       "Target": "Data/Quests",
       "Entries": {
-        "StartingQuest": "Location/Cool Test Quest B)/This is a very cool template quest/Eat a bean./-1/-1/100/false",
+        "StartingQuest": "Location/Cool Test Quest B)/This is a very cool template quest/Eat a bean./-1/-1/100/false"
       }
     },
     {
       "Action": "Load",
       "Target": "Maps/Backwoods",
       "FromFile": "maps/Backwoods.tmx"
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Locations",
+      "Entries": {
+        "{{ModId}}_BaseCamp": {
+          "CreateOnLoad": {
+            "MapPath": "maps/{{ModId}}_placeholder_1.tmx"
+          }
+        }
+      }
+
+    },
+    {
+      "Action": "Load",
+      "Target": "maps/{{ModId}}_placeholder_1.tmx",
+      "FromFile": "maps/placeholder_1.tmx"
     }
+
   ]
 }
