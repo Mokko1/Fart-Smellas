@@ -23,7 +23,12 @@
     {
       "Action": "Load",
       "Target": "Maps/Backwoods",
-      "FromFile": "maps/Backwoods.tmx"
+      "FromFile": "Maps/Backwoods.tmx"
+    },
+    {
+      "Action": "Load",
+      "Target": "Maps/{{ModId}}_placeholder_1",
+      "FromFile": "Maps/placeholder_1.tmx"
     },
     {
       "Action": "EditData",
@@ -31,16 +36,11 @@
       "Entries": {
         "{{ModId}}_BaseCamp": {
           "CreateOnLoad": {
-            "MapPath": "maps/{{ModId}}_placeholder_1.tmx"
+            "MapPath": "Maps/{{ModId}}_placeholder_1"
           }
         }
       }
 
-    },
-    {
-      "Action": "Load",
-      "Target": "maps/{{ModId}}_placeholder_1.tmx",
-      "FromFile": "maps/placeholder_1.tmx"
     }
 
   ]

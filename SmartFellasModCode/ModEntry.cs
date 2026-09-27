@@ -47,9 +47,7 @@ namespace SmartFellasMod
                 return;
             }
 
-            // Replace "YourCustomMapName" with the string ID of your custom area
-            // and provide destination tile coordinates (e.g., X: 5, Y: 5)
-            Game1.warpFarmer("SmartFellas.Ascension_test", 5, 5, false);
+            Game1.warpFarmer("BaseCamp", 5, 5, false);
 
             this.Monitor.Log("Warped to custom area!", LogLevel.Info);
         }
