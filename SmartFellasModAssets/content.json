@@ -17,7 +17,26 @@
       "Action": "EditData",
       "Target": "Data/Quests",
       "Entries": {
-        "StartingQuest": "Location/Cool Test Quest B)/This is a very cool template quest/Eat a bean./-1/-1/100/false",
+        "StartingQuest": "Location/Cool Test Quest B)/This is a very cool template quest/Eat a bean./-1/-1/100/false"
+      }
+    },
+    {
+     "Action": "EditData",
+     "Target": "Data/Furniture",
+     "Entries": {
+        "{{ModId}}_MagicRock": {
+                   "Name": "{{ModId}}_MagicRock",
+                   "Displayname": "Magic Rock",
+                   "Description": "Magic floating rock",
+                   "Type": "Decor",
+                   "rotations": 1,
+                   "placement restriction": 1,
+                   "Category": -24,
+                   "Price": 1200,
+
+
+                   "SpriteIndex": 0
+         }
       }
     }
   ]
