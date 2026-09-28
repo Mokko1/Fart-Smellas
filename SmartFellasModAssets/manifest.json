@@ -1,12 +1,10 @@
 {
-  "Name": "AscensionAssets",
+  "Name": "AscensionCode Content",
   "Author": "SmartFellas",
-  "Description": "The assets for a mod for Stardew Valley",
+  "Description": "Content pack for AscensionCode",
   "Version": "1.0.0",
-  "UniqueID": "SmartFellas.AscensionAssets",
+  "UniqueID": "SmartFellas.AscensionCode.Content",
   "ContentPackFor": {
     "UniqueID": "Pathoschild.ContentPatcher"
-  },
-  "UpdateKeys": [ "Nexus:" ]
-
+  }
 }

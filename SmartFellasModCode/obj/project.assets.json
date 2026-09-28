@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "targets": {
     "net6.0": {
       "Pathoschild.Stardew.ModBuildConfig/4.4.0": {
@@ -38,19 +38,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\yusef\\.nuget\\packages\\": {}
+    "C:\\Users\\Thor\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\yusef\\Documents\\Github\\Fart-Smellas\\SmartFellasModCode\\SmartFellasMod.csproj",
+      "projectUniqueName": "C:\\Users\\Thor\\Desktop\\Fart-Smellas\\SmartFellasModCode\\SmartFellasMod.csproj",
       "projectName": "SmartFellasMod",
-      "projectPath": "C:\\Users\\yusef\\Documents\\Github\\Fart-Smellas\\SmartFellasModCode\\SmartFellasMod.csproj",
-      "packagesPath": "C:\\Users\\yusef\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\yusef\\Documents\\Github\\Fart-Smellas\\SmartFellasModCode\\obj\\",
+      "projectPath": "C:\\Users\\Thor\\Desktop\\Fart-Smellas\\SmartFellasModCode\\SmartFellasMod.csproj",
+      "packagesPath": "C:\\Users\\Thor\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Thor\\Desktop\\Fart-Smellas\\SmartFellasModCode\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\yusef\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Thor\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -62,6 +62,7 @@
       },
       "frameworks": {
         "net6.0": {
+          "framework": "net6.0",
           "targetAlias": "net6.0",
           "projectReferences": {}
         }
@@ -76,10 +77,11 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "10.0.400"
     },
     "frameworks": {
       "net6.0": {
+        "framework": "net6.0",
         "targetAlias": "net6.0",
         "dependencies": {
           "Pathoschild.Stardew.ModBuildConfig": {
@@ -98,12 +100,26 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
+        "downloadDependencies": [
+          {
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[6.0.36, 6.0.36]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[6.0.36, 6.0.36]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[6.0.36, 6.0.36]"
+          }
+        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.314\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }

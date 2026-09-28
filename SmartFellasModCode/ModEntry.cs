@@ -4,6 +4,7 @@ using StardewModdingAPI.Events;
 using StardewModdingAPI.Utilities;
 using StardewValley;
 using StardewValley.Locations;
+using StardewValley.Monsters;
 using StardewValley.Quests;
 using System;
 
@@ -26,37 +27,25 @@ namespace SmartFellasMod
             helper.Events.Player.Warped += OnPlayerWarped;
 
 
-            // Register the console command
+            // Create the console command
             helper.ConsoleCommands.Add(
                 name: "set_oxygen",
                 documentation: "Sets the current oxygen deprivation level.\n\nUsage: set_oxygen <value>",
                 callback: this.HandleSetOxygen
             );
 
-            // used to teleport to new area
+            // used to teleport to new area BaseCamp
             helper.ConsoleCommands.Add("player_warp_test", "Warps the player to your custom area.\n\nUsage: player_warp_test", this.WarpToCustomArea);
 
         }
 
-        private void WarpToCustomArea(string command, string[] args)
-        {
-            // Check if a save is loaded so the game doesn't crash
-            if (!Context.IsWorldReady)
-            {
-                this.Monitor.Log("You must load a save before using this command.", LogLevel.Warn);
-                return;
-            }
-
-            // Replace "YourCustomMapName" with the string ID of your custom area
-            // and provide destination tile coordinates (e.g., X: 5, Y: 5)
-            Game1.warpFarmer("SmartFellas.Ascension_test", 5, 5, false);
-
-            this.Monitor.Log("Warped to custom area!", LogLevel.Info);
-        }
 
         /*********
         ** Private Fields
         *********/
+
+        // code used to retrieve stuff from the content pack
+        private const string ContentPackId = "SmartFellas.AscensionCode.Content";
 
         // tracks how much stamina the player had last tick
         private float lastStamina;
@@ -90,19 +79,51 @@ namespace SmartFellasMod
         }
 
         /// <summary>
+        /// Warps the player to the basecamp location, can be modified to send them somewhere based on command arguments
+        /// </summary>
+        /// <param name="command">player_warp_test is the command that is typed into the console to call this</param>
+        /// <param name="args">arguments that follow the command</param>
+        private void WarpToCustomArea(string command, string[] args)
+        {
+            // checl that a save is loadd so the game doesn't crash
+            if (!Context.IsWorldReady)
+            {
+                this.Monitor.Log("You must load a save before using this command.", LogLevel.Warn);
+                return;
+            }
+
+            // currently hardcoded to warp to basecamp
+            string locationName = $"{ContentPackId}_BaseCamp";
+
+            // checks if this warp would fail
+            if (Game1.getLocationFromName(locationName) == null)
+            {
+                // informs the user of where the code attempted tosend them to help with debugging
+                this.Monitor.Log($"Could not find location '{locationName}'. Is your Content Patcher pack loaded correctly?", LogLevel.Error);
+                return;
+            }
+
+            Game1.warpFarmer(locationName, 5, 5, false);
+            this.Monitor.Log($"Warped to {locationName}!", LogLevel.Info);
+        }
+
+        /// <summary>
         /// essentially, an update function called for every tick of the game
         /// </summary>
         /// <param name="sender"> object that emitted the UpdateTicked event</param>
         /// <param name="e"> tick params </param>
         private void OnUpdateTicked(object sender, UpdateTickedEventArgs e)
         {
-            // Ignore updates if the player hasn't loaded in yet
+            // ignore updates if the player hasn't loaded in yet
             if (!Context.IsWorldReady || Game1.player == null)
                 return;
 
             AdjustStaminaForOxygen();
         }
 
+        /// <summary>
+        /// checks if the player used any energy, if they did adds additional energy drain for their current oxygen level
+        /// </summary>
         private void AdjustStaminaForOxygen()
         {
             float currentStamina = Game1.player.Stamina;
@@ -130,7 +151,11 @@ namespace SmartFellasMod
             }
         }
 
-
+        /// <summary>
+        /// Sets the player's oxygen to a specific number for testing
+        /// </summary>
+        /// <param name="command">set_oxygen is the command used to call this</param>
+        /// <param name="args"> the number the player is trying to set the oxygen to</param>
         private void HandleSetOxygen(string command, string[] args)
         {
             // check the user provided an argument
@@ -168,6 +193,28 @@ namespace SmartFellasMod
                     if (!Game1.player.hasOrWillReceiveMail("ascension_mine_letter"))
                         Game1.addMailForTomorrow("ascension_mine_letter");
             }
+
+            //Thor - Added this line in order to know exactly where the player is in our mod so I can add things right.
+            this.Monitor.Log($"{warpedEvent.NewLocation.Name}", LogLevel.Debug);
+
+            if (warpedEvent.NewLocation.Name == $"{ContentPackId}_Climb")
+            {
+                SpawnCustomMonsters();
+            }
+        }
+
+
+        public void SpawnCustomMonsters()
+        {
+            //First, create a new custom monster.
+            //We will use a stone golem for starters.
+            Monster testMonster = new RockGolem(new Vector2(15, 6));
+
+            //Verification that the monster exists.
+            this.Monitor.Log($"{testMonster.Name}", LogLevel.Debug);
+
+            //Then, we need to add this monster to the map itself.
+            Game1.currentLocation.addCharacter(testMonster);
         }
     }
 }
