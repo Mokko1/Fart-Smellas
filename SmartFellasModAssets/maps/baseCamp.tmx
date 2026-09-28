@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="left-down" width="18" height="10" tilewidth="16" tileheight="16" infinite="0" nextlayerid="12" nextobjectid="1">
  <properties>
-  <property name="Warp" value="7 9 Buffer 7 1 8 9 Buffer 8 1"/>
+  <property name="Warp" value="7 9 SmartFellas.AscensionCode.Content_Buffer 7 1 8 9 SmartFellas.AscensionCode.Content_Buffer 8 1"/>
  </properties>
- <tileset firstgid="1" source="../../../../../RIT 4.1/Game Modding/Tiled/TileSheets/spring_outdoorsTileSheet.tsx"/>
+ <tileset firstgid="1" source="spring_outdoorsTileSheet.tsx"/>
  <layer id="1" name="Back" width="18" height="10">
   <data encoding="csv">
 154,154,154,154,154,154,154,154,154,154,154,154,154,154,154,154,154,154,
