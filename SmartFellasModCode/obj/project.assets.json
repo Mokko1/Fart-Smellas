@@ -1,5 +1,5 @@
 {
-  "version": 3,
+  "version": 4,
   "targets": {
     "net6.0": {
       "Pathoschild.Stardew.ModBuildConfig/4.4.0": {
@@ -38,24 +38,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ricar\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\Thor\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\SteamLibrary\\steamapps\\common\\Stardew Valley\\Fart-Smellas\\SmartFellasModCode\\SmartFellasMod.csproj",
+      "projectUniqueName": "C:\\Users\\Thor\\Desktop\\Fart-Smellas\\SmartFellasModCode\\SmartFellasMod.csproj",
       "projectName": "SmartFellasMod",
-      "projectPath": "C:\\SteamLibrary\\steamapps\\common\\Stardew Valley\\Fart-Smellas\\SmartFellasModCode\\SmartFellasMod.csproj",
-      "packagesPath": "C:\\Users\\ricar\\.nuget\\packages\\",
-      "outputPath": "C:\\SteamLibrary\\steamapps\\common\\Stardew Valley\\Fart-Smellas\\SmartFellasModCode\\obj\\",
+      "projectPath": "C:\\Users\\Thor\\Desktop\\Fart-Smellas\\SmartFellasModCode\\SmartFellasMod.csproj",
+      "packagesPath": "C:\\Users\\Thor\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Thor\\Desktop\\Fart-Smellas\\SmartFellasModCode\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\ricar\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\Thor\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -67,6 +62,7 @@
       },
       "frameworks": {
         "net6.0": {
+          "framework": "net6.0",
           "targetAlias": "net6.0",
           "projectReferences": {}
         }
@@ -81,10 +77,11 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "10.0.400"
     },
     "frameworks": {
       "net6.0": {
+        "framework": "net6.0",
         "targetAlias": "net6.0",
         "dependencies": {
           "Pathoschild.Stardew.ModBuildConfig": {
@@ -122,7 +119,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.401\\RuntimeIdentifierGraph.json"
       }
     }
   }
