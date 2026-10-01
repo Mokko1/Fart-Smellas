@@ -99,7 +99,8 @@ namespace SmartFellasMod
             // Ignore updates if the player hasn't loaded in yet
             if (!Context.IsWorldReady || Game1.player == null)
                 return;
-
+            FertilizeGround();
+            this.Monitor.Log("a trace message");
             AdjustStaminaForOxygen();
         }
 
@@ -169,5 +170,16 @@ namespace SmartFellasMod
                         Game1.addMailForTomorrow("ascension_mine_letter");
             }
         }
+
+        private void FertilizeGround()
+        {
+
+
+            var farm = Game1.getFarm();
+            var farmFurniture = farm.furniture;
+            this.Monitor.Log(farmFurniture[0].name);
+        }
+
+
     }
 }
