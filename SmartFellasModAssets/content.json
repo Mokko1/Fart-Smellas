@@ -27,21 +27,21 @@
     },
     {
       "Action": "Load",
-      "Target": "Maps/{{ModId}}_placeholder_1",
-      "FromFile": "Maps/placeholder_1.tmx"
+      "Target": "Maps/{{ModId}}_buffer",
+      "FromFile": "Maps/buffer.tmx"
     },
     {
       "Action": "Load",
-      "Target": "Maps/{{ModId}}_placeholder_2",
-      "FromFile": "Maps/placeholder_2.tmx"
+      "Target": "Maps/{{ModId}}_baseCamp",
+      "FromFile": "Maps/baseCamp.tmx"
     },
     {
       "Action": "EditData",
       "Target": "Data/Locations",
       "Entries": {
-        "{{ModId}}_BaseCamp": {
+        "{{ModId}}_Buffer": {
           "CreateOnLoad": {
-            "MapPath": "Maps/{{ModId}}_placeholder_1"
+            "MapPath": "Maps/{{ModId}}_buffer"
           }
         }
       }
@@ -51,9 +51,9 @@
       "Action": "EditData",
       "Target": "Data/Locations",
       "Entries": {
-        "{{ModId}}_Climb": {
+        "{{ModId}}_BaseCamp": {
           "CreateOnLoad": {
-            "MapPath": "Maps/{{ModId}}_placeholder_2"
+            "MapPath": "Maps/{{ModId}}_baseCamp"
           }
         }
       }
