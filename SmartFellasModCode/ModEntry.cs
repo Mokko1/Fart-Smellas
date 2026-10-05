@@ -37,5 +37,16 @@ namespace SmartFellasMod
             helper.ConsoleCommands.Add("player_warp_camp", "Warps the player to your custom area.\n\nUsage: player_warp_camp", warpCommands.WarpToCustomArea);
 
         }
+
+        //private void FertilizeGround()
+        //{
+
+
+            //var farm = Game1.getFarm();
+            //var farmFurniture = farm.furniture;
+            //this.Monitor.Log(farmFurniture[0].name);
+        //}
+
+
     }
 }
