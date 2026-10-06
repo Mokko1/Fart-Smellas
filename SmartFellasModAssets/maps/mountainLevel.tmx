@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="left-down" width="15" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="11" nextobjectid="1">
- <tileset firstgid="1" source="TileSheets/spring_outdoorsTileSheet.tsx"/>
- <tileset firstgid="1976" source="TileSheets/mine_frost.tsx"/>
- <tileset firstgid="2264" source="TileSheets/winter_beach.tsx"/>
- <tileset firstgid="2791" source="TileSheets/winter_outdoorsTileSheet.tsx"/>
+ <tileset firstgid="1" source="spring_outdoorsTileSheet.tsx"/>
+ <tileset firstgid="1976" source="mine_frost.tsx"/>
+ <tileset firstgid="2264" source="winter_beach.tsx"/>
+ <tileset firstgid="2791" source="winter_outdoorsTileSheet.tsx"/>
  <layer id="1" name="Back" width="15" height="25">
   <data encoding="csv">
 3212,3212,3212,3212,3212,3212,3212,3212,3212,3212,3212,3212,3212,3212,3212,

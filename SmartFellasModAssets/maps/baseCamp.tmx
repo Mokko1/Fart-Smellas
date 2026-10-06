@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="left-down" width="25" height="22" tilewidth="16" tileheight="16" infinite="0" nextlayerid="14" nextobjectid="1">
- <tileset firstgid="1" source="TileSheets/spring_outdoorsTileSheet.tsx"/>
- <tileset firstgid="1976" source="TileSheets/winter_outdoorsTileSheet.tsx"/>
+ <tileset firstgid="1" source="spring_outdoorsTileSheet.tsx"/>
+ <tileset firstgid="1976" source="winter_outdoorsTileSheet.tsx"/>
  <layer id="2" name="Back-1" width="25" height="22">
   <data encoding="csv">
 2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,
