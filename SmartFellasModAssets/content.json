@@ -62,11 +62,19 @@
     "Action": "EditData",
      "Target": "Data/Furniture",
      "Entries": {
+<<<<<<< Updated upstream
           "{{ModId}}_magic_rock": "{{ModId}}_magic_rock/decor/1 1/1 1/1/1000/-1/magic rock/0/"
          }
     }
       
     
+=======
+      "{{ModId}}_magic_rock": "{{ModId}}_magic_rock/decor/1 1/1 1/1/1000/-1/magic rock/0"
+         }
+        }
+      
+>>>>>>> Stashed changes
 
+        
   ]
 }

@@ -8,6 +8,7 @@ namespace SmartFellasMod
         private OxygenManager oxygenManager;
         private WarpCommands warpCommands;
         private PlayerWarpHandler playerWarpHandler;
+        private RockHandler rockHandler;
 
         /*********
         ** Public methods
@@ -19,12 +20,14 @@ namespace SmartFellasMod
             oxygenManager = new OxygenManager(this.Monitor);
             warpCommands = new WarpCommands(this.Monitor);
             playerWarpHandler = new PlayerWarpHandler(this.Monitor);
+            rockHandler = new RockHandler(this.Monitor);
 
             // subscribe into the game loop updates
             helper.Events.GameLoop.UpdateTicked += oxygenManager.OnUpdateTicked;
+            helper.Events.GameLoop.DayStarted += rockHandler.OnDayStarted;
             helper.Events.GameLoop.SaveLoaded += oxygenManager.OnSaveLoaded;
             helper.Events.Player.Warped += playerWarpHandler.OnPlayerWarped;
-
+            helper.Events.Player.Warped += rockHandler.OnPlayerWarped;
 
             // Create the console command
             helper.ConsoleCommands.Add(
