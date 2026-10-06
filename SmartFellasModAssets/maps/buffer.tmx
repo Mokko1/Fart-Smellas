@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="left-down" width="18" height="11" tilewidth="16" tileheight="16" infinite="0" nextlayerid="12" nextobjectid="1">
- <tileset firstgid="1" source="TileSheets/spring_outdoorsTileSheet.tsx"/>
+ <tileset firstgid="1" source="spring_outdoorsTileSheet.tsx"/>
  <layer id="11" name="Back-1" width="18" height="11">
   <data encoding="csv">
 1247,1247,1247,1247,1247,0,0,0,0,0,0,0,0,0,0,0,0,0,
