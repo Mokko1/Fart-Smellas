@@ -23,10 +23,10 @@ namespace SmartFellasMod
         }
         private bool hasEntered = false;
 
+        //sets the terrain around the rock to be fertilized
         public void OnDayStarted(object sender, DayStartedEventArgs e)
         {
 
-            //
             if (!Context.IsWorldReady) return;
             var farm = Game1.getFarm();
 
@@ -45,6 +45,7 @@ namespace SmartFellasMod
             }
         }
 
+        //if enters base camp for the first time, spawn the rock
         public void OnPlayerWarped(object? sender, WarpedEventArgs warpedEvent)
         {
             //debug warp SmartFellas.AscensionCode.Content_baseCamp
@@ -59,6 +60,7 @@ namespace SmartFellasMod
             }
         }
 
+        //fertilizes the tiles around the rock
         private void FertilizeTiles(GameLocation location, Vector2 tile)
         {
       
