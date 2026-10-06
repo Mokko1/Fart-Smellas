@@ -62,21 +62,19 @@
     "Action": "EditData",
      "Target": "Data/Furniture",
      "Entries": {
-        "{{ModId}}_MagicRock": {
-                   "Name": "{{ModId}}_MagicRock",
-                   "Displayname": "Magic Rock",
-                   "Description": "Magic floating rock",
-                   "Type": "Decor",
-                   "rotations": 1,
-                   "placement restriction": 1,
-                   "Category": -24,
-                   "Price": 1200,
-
-
-                   "SpriteIndex": 0
+<<<<<<< Updated upstream
+          "{{ModId}}_magic_rock": "{{ModId}}_magic_rock/decor/1 1/1 1/1/1000/-1/magic rock/0/"
+         }
+    }
+      
+    
+=======
+      "{{ModId}}_magic_rock": "{{ModId}}_magic_rock/decor/1 1/1 1/1/1000/-1/magic rock/0"
          }
         }
-      }
+      
+>>>>>>> Stashed changes
 
+        
   ]
 }
