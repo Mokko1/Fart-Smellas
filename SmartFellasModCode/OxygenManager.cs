@@ -1,4 +1,6 @@
-﻿using StardewModdingAPI;
+﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
 
@@ -41,9 +43,26 @@ namespace SmartFellasMod
             }
         }
 
+
+        public Texture2D customTexture;
+
+
         /*********
         ** Methods
         *********/
+
+        public void RenderOxygenHud(object sender, RenderedHudEventArgs e)
+        {
+            if (!Context.IsWorldReady)
+                return;
+
+
+            e.SpriteBatch.Draw(
+                texture: customTexture,
+                position: new Vector2(100, 100),
+                color: Color.Aqua
+            );
+        }
 
         /// <summary>
         /// called once the save data for a game has been loaded
