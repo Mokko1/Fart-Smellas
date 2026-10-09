@@ -25,15 +25,14 @@ namespace SmartFellasMod
             playerWarpHandler = new PlayerWarpHandler(this.Monitor);
             rockHandler = new RockHandler(this.Monitor);
 
+            // Path to the assets mod
             string packPath = Path.Combine(
             Constants.GamePath,
             "Mods",
             "SmartFellasModAssets"
             );
-
             IContentPack pack = helper.ContentPacks.CreateFake(packPath);
-
-            oxygenManager.customTexture = pack.ModContent.Load<Texture2D>("assets/teamImage.png");
+            oxygenManager.customTexture = pack.ModContent.Load<Texture2D>("assets/circle.png");
 
             // subscribe into the game loop updates
             helper.Events.GameLoop.UpdateTicked += oxygenManager.OnUpdateTicked;

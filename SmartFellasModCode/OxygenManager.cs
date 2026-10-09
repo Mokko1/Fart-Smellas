@@ -51,16 +51,37 @@ namespace SmartFellasMod
         ** Methods
         *********/
 
+        /// <summary>
+        /// Render the hud element for the oxygen mechanic using the actual value as text
+        /// </summary>
         public void RenderOxygenHud(object sender, RenderedHudEventArgs e)
         {
             if (!Context.IsWorldReady)
                 return;
 
+            SpriteBatch spriteBatch = e.SpriteBatch;
+            int screenWidth = Game1.graphics.GraphicsDevice.Viewport.Width;
+            int screenHeight = Game1.graphics.GraphicsDevice.Viewport.Height;
 
-            e.SpriteBatch.Draw(
+            spriteBatch.Draw(
                 texture: customTexture,
-                position: new Vector2(100, 100),
-                color: Color.Aqua
+                position: new Vector2(50, screenHeight * (float)(5.0/6.0)),
+                sourceRectangle: null,
+                color: Color.White,
+                rotation: 0,
+                origin: Vector2.Zero,
+                scale: 2,
+                effects: SpriteEffects.None,
+                layerDepth: 0
+            );
+
+            Vector2 stringSize = Game1.dialogueFont.MeasureString(oxygenDeprivation.ToString());
+
+            spriteBatch.DrawString(
+                spriteFont: Game1.dialogueFont,
+                text: oxygenDeprivation.ToString(),
+                position: new Vector2(84 - stringSize.X / 2, screenHeight * (float)(5.0/6.0) + 12),
+                color: Color.White
             );
         }
 
