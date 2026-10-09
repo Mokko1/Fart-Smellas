@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using StardewModdingAPI;
+using System.Diagnostics;
 
 namespace SmartFellasMod
 {
@@ -23,7 +24,17 @@ namespace SmartFellasMod
             warpCommands = new WarpCommands(this.Monitor);
             playerWarpHandler = new PlayerWarpHandler(this.Monitor);
             rockHandler = new RockHandler(this.Monitor);
-            oxygenManager.customTexture = helper.ModContent.Load<Texture2D>("assets/my_sprite.png");
+
+            string packPath = Path.Combine(
+            Constants.GamePath,
+            "Mods",
+            "SmartFellasModAssets"
+            );
+
+            IContentPack pack = helper.ContentPacks.CreateFake(packPath);
+
+            oxygenManager.customTexture = pack.ModContent.Load<Texture2D>("assets/teamImage.png");
+
             // subscribe into the game loop updates
             helper.Events.GameLoop.UpdateTicked += oxygenManager.OnUpdateTicked;
             helper.Events.GameLoop.DayStarted += rockHandler.OnDayStarted;
