@@ -1,0 +1,6 @@
+{
+  "spring": "600 SmartFellas.AscensionCode.Content_BaseCamp 33 28 2 / 800 SmartFellas.AscensionCode.Content_BaseCamp 38 28 2",
+  "summer": "GOTO spring",
+  "fall": "GOTO spring",
+  "winter": "GOTO spring"
+}
