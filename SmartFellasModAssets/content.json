@@ -36,6 +36,11 @@
       "FromFile": "Maps/baseCamp.tmx"
     },
     {
+      "Action": "Load",
+      "Target": "Maps/{{ModId}}_mountainLevel",
+      "FromFile": "Maps/mountainLevel.tmx"
+    },
+    {
       "Action": "EditData",
       "Target": "Data/Locations",
       "Entries": {
@@ -59,22 +64,22 @@
       }
     },
     {
-    "Action": "EditData",
-     "Target": "Data/Furniture",
-     "Entries": {
-<<<<<<< Updated upstream
-          "{{ModId}}_magic_rock": "{{ModId}}_magic_rock/decor/1 1/1 1/1/1000/-1/magic rock/0/"
-         }
-    }
-      
-    
-=======
-      "{{ModId}}_magic_rock": "{{ModId}}_magic_rock/decor/1 1/1 1/1/1000/-1/magic rock/0"
-         }
+      "Action": "EditData",
+      "Target": "Data/Locations",
+      "Entries": {
+        "{{ModId}}_MountainLevel": {
+          "CreateOnLoad": {
+            "MapPath": "Maps/{{ModId}}_mountainLevel"
+          }
         }
-      
->>>>>>> Stashed changes
-
-        
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Furniture",
+      "Entries": {
+        "{{ModId}}_magic_rock": "{{ModId}}_magic_rock/decor/1 1/1 1/1/1000/-1/magic rock/0/"
+      }
+    }
   ]
 }
