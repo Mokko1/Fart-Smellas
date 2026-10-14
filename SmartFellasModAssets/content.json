@@ -84,6 +84,17 @@
       "Entries": {
         "{{ModId}}_magic_rock": "{{ModId}}_magic_rock/decor/1 1/1 1/1/1000/-1/magic rock/0/"
       }
-    }
+    },
+       {
+            "LogName": "mountain entry events",
+            "Action": "EditData",
+            "Target": "Data/Events/town",
+            "Entries": {
+               
+                "skellady.SBVCP_20031402/e 112/w sunny": "playful/-100 -100/farmer 86 96 23/skippable/viewport 87 104 clamp/pause 400/move farmer 0 7 2/pause 500/emote farmer 8/pause 500/pause 500/speak Abigail \" hi there \"/pause 500/jump MoonSBV/speed MoonSBV 5/move MoonSBV 0 2 2/warp MoonSBV -100 -100/pause 500/message \"ascension quest test\"/pause 400/message \"{{i18n:event-20031402.03}}\"/pause 1000/globalFade/viewport -999 -999/end"
+                 }
+      }
+      
+    
   ]
 }
