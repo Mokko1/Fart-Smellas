@@ -2,7 +2,7 @@
 <map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="right-down" compressionlevel="0" width="50" height="40" tilewidth="16" tileheight="16" infinite="0" nextlayerid="13" nextobjectid="2">
  <properties>
   <property name="Outdoors" type="bool" value="true"/>
-  <property name="Warp" value="50 10 Mountain 0 13 50 11 Mountain 0 13 50 12 Mountain 0 13 50 13 Mountain 0 13 50 14 Mountain 0 13 50 15 Mountain 0 13 50 16 Mountain 0 13 50 17 Mountain 0 13 13 40 Farm 40 0 14 40 Farm 40 0 15 40 Farm 40 0 50 28 BusStop 14 8 50 29 BusStop 14 8 50 30 BusStop 14 8 50 31 BusStop 14 8 50 32 BusStop 14 8 22 29 Tunnel 39 9 22 30 Tunnel 39 9 22 31 Tunnel 39 9 22 32 Tunnel 39 9 24 0 SmartFellas.AscensionCode.Content_Buffer 8 9 25 0 SmartFellas.AscensionCode.Content_Buffer 8 9 26 0 SmartFellas.AscensionCode.Content_Buffer 8 9"/>
+  <property name="Warp" value="50 10 Mountain 0 13 50 11 Mountain 0 13 50 12 Mountain 0 13 50 13 Mountain 0 13 50 14 Mountain 0 13 50 15 Mountain 0 13 50 16 Mountain 0 13 50 17 Mountain 0 13 13 40 Farm 40 0 14 40 Farm 40 0 15 40 Farm 40 0 50 28 BusStop 14 8 50 29 BusStop 14 8 50 30 BusStop 14 8 50 31 BusStop 14 8 50 32 BusStop 14 8 22 29 Tunnel 39 9 22 30 Tunnel 39 9 22 31 Tunnel 39 9 22 32 Tunnel 39 9 24 0 SmartFellas.AscensionCode.Content_Buffer 16 8 25 0 SmartFellas.AscensionCode.Content_Buffer 16 8 26 0 SmartFellas.AscensionCode.Content_Buffer 16 8"/>
  </properties>
  <tileset firstgid="1" name="monsterGraveTiles" tilewidth="16" tileheight="16" tilecount="15" columns="3">
   <image source="spring_monsterGraveTiles" width="48" height="80"/>

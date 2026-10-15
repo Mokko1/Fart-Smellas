@@ -1,0 +1,52 @@
+{
+  "Changes": [
+    {
+      "Action": "Load",
+      "Target": "Characters/{{ModId}}_GuideNPC",
+      "FromFile": "npcs/guidenpc/sprites.png"
+    },
+    {
+      "Action": "Load",
+      "Target": "Portraits/{{ModId}}_GuideNPC",
+      "FromFile": "npcs/guidenpc/portraits.png"
+    },
+    {
+      "Action": "Load",
+      "Target": "Characters/Dialogue/{{ModId}}_GuideNPC",
+      "FromFile": "npcs/guidenpc/dialogue.json"
+    },
+    {
+      "Action": "Load",
+      "Target": "Characters/schedules/{{ModId}}_GuideNPC",
+      "FromFile": "npcs/guidenpc/schedule.json"
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Characters",
+      "Entries": {
+        "{{ModId}}_GuideNPC": {
+          "DisplayName": "GuideNPC",
+          "BirthSeason": "Winter",
+          "BirthDay": 20,
+          "HomeRegion": "Other",
+          "Gender": "Female",
+          "Age": "Adult",
+          "CanBeRomanced": false,
+          "CanReceiveGifts": false,
+          "TextureName": "{{ModId}}_GuideNPC",
+          "Home": [
+            {
+              "Id": "Default",
+              "Location": "{{ModId}}_BaseCamp",
+              "Tile": {
+                "X": 33,
+                "Y": 28
+              },
+              "Direction": "down"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -21,6 +21,10 @@
       }
     },
     {
+      "Action": "Include",
+      "FromFile": "npcs/guidenpc/guidenpc.json"
+    },
+    {
       "Action": "Load",
       "Target": "Maps/Backwoods",
       "FromFile": "Maps/Backwoods.tmx"
@@ -34,6 +38,11 @@
       "Action": "Load",
       "Target": "Maps/{{ModId}}_baseCamp",
       "FromFile": "Maps/baseCamp.tmx"
+    },
+    {
+      "Action": "Load",
+      "Target": "Maps/{{ModId}}_mountainLevel",
+      "FromFile": "Maps/mountainLevel.tmx"
     },
     {
       "Action": "EditMap",
@@ -67,6 +76,11 @@
           "SetIndex": 1673
         }
       ]
+    },
+    {
+      "Action": "Load",
+      "Target": "Maps/{{ModId}}_mountainLevel",
+      "FromFile": "Maps/mountainLevel.tmx"
     },
     {
       "Action": "EditMap",
@@ -128,15 +142,22 @@
       }
     },
     {
-    "Action": "EditData",
-     "Target": "Data/Furniture",
-     "Entries": {
-          "{{ModId}}_magic_rock": "{{ModId}}_magic_rock/decor/1 1/1 1/1/1000/-1/magic rock/0/"
-         }
+      "Action": "EditData",
+      "Target": "Data/Locations",
+      "Entries": {
+        "{{ModId}}_MountainLevel": {
+          "CreateOnLoad": {
+            "MapPath": "Maps/{{ModId}}_mountainLevel"
+          }
+        }
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Furniture",
+      "Entries": {
+        "{{ModId}}_magic_rock": "{{ModId}}_magic_rock/decor/1 1/1 1/1/1000/-1/magic rock/0/"
+      }
     }
-      
-    
-
-        
   ]
 }
