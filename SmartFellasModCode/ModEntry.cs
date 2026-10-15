@@ -1,5 +1,7 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using StardewModdingAPI;
+using StardewValley;
+using System;
 using System.Diagnostics;
 
 namespace SmartFellasMod
@@ -11,7 +13,7 @@ namespace SmartFellasMod
         private WarpCommands warpCommands;
         private PlayerWarpHandler playerWarpHandler;
         private RockHandler rockHandler;
-
+        private QuestHandler questHandler;
 
         /*********
         ** Public methods
@@ -24,6 +26,7 @@ namespace SmartFellasMod
             warpCommands = new WarpCommands(this.Monitor);
             playerWarpHandler = new PlayerWarpHandler(this.Monitor);
             rockHandler = new RockHandler(this.Monitor);
+            questHandler = new QuestHandler(this.Monitor);
 
             // Path to the assets mod
             string packPath = Path.Combine(
@@ -38,6 +41,7 @@ namespace SmartFellasMod
             helper.Events.GameLoop.UpdateTicked += oxygenManager.OnUpdateTicked;
             helper.Events.GameLoop.DayStarted += rockHandler.OnDayStarted;
             helper.Events.GameLoop.SaveLoaded += oxygenManager.OnSaveLoaded;
+            helper.Events.Player.Warped += questHandler.Warped;
             helper.Events.Player.Warped += playerWarpHandler.OnPlayerWarped;
             helper.Events.Player.Warped += rockHandler.OnPlayerWarped;
 

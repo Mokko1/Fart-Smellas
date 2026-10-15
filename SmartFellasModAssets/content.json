@@ -36,6 +36,75 @@
       "FromFile": "Maps/baseCamp.tmx"
     },
     {
+      "Action": "EditMap",
+      "Target": "Maps/Backwoods",
+      "MapTiles": [
+        {
+          "Layer": "Buildings",
+          "Position": {
+            "X": 24,
+            "Y": 3
+          },
+          "SetTilesheet": "outdoor",
+          "SetIndex": 1673
+        },
+        {
+          "Layer": "Buildings",
+          "Position": {
+            "X": 25,
+            "Y": 3
+          },
+          "SetTilesheet": "outdoor",
+          "SetIndex": 1673
+        },
+        {
+          "Layer": "Buildings",
+          "Position": {
+            "X": 26,
+            "Y": 3
+          },
+          "SetTilesheet": "outdoor",
+          "SetIndex": 1673
+        }
+      ]
+    },
+    {
+      "Action": "EditMap",
+      "Target": "Maps/Backwoods",
+      "Update": "OnLocationChange",
+      "When": {
+        "HasActiveQuest": "StartingQuest"
+      },
+      "MapTiles": [
+        {
+          "Layer": "Buildings",
+          "Position": {
+            "X": 24,
+            "Y": 3
+          },
+          
+          "Remove": true
+        },
+        {
+          "Layer": "Buildings",
+          "Position": {
+            "X": 25,
+            "Y": 3
+          },
+          
+          "Remove": true
+        },{
+          "Layer": "Buildings",
+          "Position": {
+            "X": 26,
+            "Y": 3
+          },
+          
+          "Remove": true
+        }
+      ]
+    },
+    {
       "Action": "EditData",
       "Target": "Data/Locations",
       "Entries": {
