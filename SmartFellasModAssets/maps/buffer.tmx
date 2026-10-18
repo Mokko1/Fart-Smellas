@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="left-down" width="30" height="16" tilewidth="16" tileheight="16" infinite="0" nextlayerid="12" nextobjectid="1">
  <properties>
+  <property name="Outdoors" type="bool" value="true"/>
   <property name="Warp" value="14 15 Backwoods 25 1 15 15 Backwoods 25 1 16 15 Backwoods 25 1 15 2 SmartFellas.AscensionCode.Content_BaseCamp 12 20"/>
  </properties>
  <tileset firstgid="1" source="spring_outdoorsTileSheet.tsx"/>
