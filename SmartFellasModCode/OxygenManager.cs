@@ -3,13 +3,14 @@ using Microsoft.Xna.Framework.Graphics;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
+using System;
 
 namespace SmartFellasMod
 {
     /// <summary>
     /// Handles checks related to oxygen and draining additional energy
     /// </summary>
-    internal sealed class OxygenManager
+    public sealed class OxygenManager
     {
         private readonly IMonitor Monitor;
 
@@ -26,20 +27,17 @@ namespace SmartFellasMod
         private float lastStamina;
 
         // higher the less oxygen the player has access to, used to add more energy lost 
-        // its minimum is 0 and max is 1
-        private float oxygenDeprivation = 0;
+        // its minimum is 0 and max is 2
+        private static float oxygenDeprivation = 0;
 
-        private float OxygenDeprivation
+        private static float OxygenDeprivation
         {
             get { return oxygenDeprivation; }
             set
             {
 
                 //ensure oxygenDeprivation is assigned correctly
-                if (value >= 0 && value <= 2)
-                {
-                    oxygenDeprivation = value;
-                }
+                oxygenDeprivation = Math.Clamp(value, 0f, 2f);
             }
         }
 
@@ -165,6 +163,10 @@ namespace SmartFellasMod
             {
                 this.Monitor.Log($"'{args[0]}' is not a valid float number.", LogLevel.Error);
             }
+        }
+        public static void SetPlayerOxygen(float value)
+        {
+            OxygenDeprivation = value;
         }
     }
 }

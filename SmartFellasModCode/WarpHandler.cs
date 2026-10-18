@@ -41,6 +41,14 @@ namespace SmartFellasMod
             if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_BaseCamp")
             {
                 SpawnCustomMonsters();
+
+                // air starts to thin
+                OxygenManager.SetPlayerOxygen(0.5f);
+            }
+            else if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_MountainLevel")
+            {
+                // air thins more
+                OxygenManager.SetPlayerOxygen(1f);
             }
         }
 
