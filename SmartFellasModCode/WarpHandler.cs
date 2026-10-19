@@ -14,6 +14,8 @@ namespace SmartFellasMod
     {
         private readonly IMonitor Monitor;
 
+        private Monster[] monsters = new Monster[10];
+
         public PlayerWarpHandler(IMonitor monitor)
         {
             this.Monitor = monitor;
@@ -47,15 +49,29 @@ namespace SmartFellasMod
 
         public void SpawnCustomMonsters()
         {
+            Monitor.Log("Attempting to spawn custom monster.", LogLevel.Debug);
+            
             //First, create a new custom monster.
             //We will use a stone golem for starters.
-            Monster testMonster = new RockGolem(new Vector2(15, 6));
+            Monster testMonster = new RockGolem(new Vector2(18, 16));
 
             //Verification that the monster exists.
-            this.Monitor.Log($"{testMonster.Name}", LogLevel.Debug);
+            this.Monitor.Log($"{testMonster.Name} has been created.", LogLevel.Debug);
+
+            //Add the monster to our list of monsters.
+            monsters[0] = testMonster;
+            Monitor.Log($"Monster has been added to list.", LogLevel.Debug);
+
+            monsters[0].Position = new Vector2(900, 1296);
+            Monitor.Log($"Monster has been added to list.", LogLevel.Debug);
 
             //Then, we need to add this monster to the map itself.
-            Game1.currentLocation.addCharacter(testMonster);
+            Game1.currentLocation.addCharacter(monsters[0]);
+            Monitor.Log($"{testMonster.Name} is in the level.", LogLevel.Debug);
+
+            //Player starts off at 768, 1296.
+            Monitor.Log($"Player Position: {Game1.player.position.X}, {Game1.player.position.Y}", LogLevel.Debug);
+            Monitor.Log($"Enemy Position: {Game1.GetCharacterOfType<Monster>().position.X}, {Game1.GetCharacterOfType<Monster>().position.Y}", LogLevel.Debug);
         }
     }
 }
