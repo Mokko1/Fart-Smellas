@@ -1,0 +1,18 @@
+{
+  "HatEffects": [
+    {
+      "HatId": "{{ModId}}_Basic_Oxygen_Mask",
+      "Buff": {
+        "BuffId": "YourModID_MaskBuff",
+        "DisplayName": "Mask Buff",
+        "IconTexture": "Mods/{{ModId}}/Circle",
+        "IconSpriteIndex": 0,
+        "Duration": -2,
+        "CustomAttributes": {
+          "Speed": 2,
+          "Defense": 1
+        }
+      }
+    }
+  ]
+}

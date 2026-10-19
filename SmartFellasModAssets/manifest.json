@@ -6,5 +6,6 @@
   "UniqueID": "SmartFellas.AscensionCode.Content",
   "ContentPackFor": {
     "UniqueID": "Pathoschild.ContentPatcher"
-  }
+  },
+  "Format": "2.3.0"
 }

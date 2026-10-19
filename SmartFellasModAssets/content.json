@@ -96,7 +96,7 @@
             "X": 24,
             "Y": 3
           },
-          
+
           "Remove": true
         },
         {
@@ -105,15 +105,16 @@
             "X": 25,
             "Y": 3
           },
-          
+
           "Remove": true
-        },{
+        },
+        {
           "Layer": "Buildings",
           "Position": {
             "X": 26,
             "Y": 3
           },
-          
+
           "Remove": true
         }
       ]
@@ -157,6 +158,32 @@
       "Target": "Data/Furniture",
       "Entries": {
         "{{ModId}}_magic_rock": "{{ModId}}_magic_rock/decor/1 1/1 1/1/1000/-1/magic rock/0/"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Furniture",
+      "Entries": {
+        "{{ModId}}_magic_rock": "{{ModId}}_magic_rock/decor/1 1/1 1/1/1000/-1/magic rock/0/"
+      }
+    },
+    {
+      "Action": "Load",
+      "Target": "Mods/{{ModId}}/Circle",
+      "FromFile": "assets/circle.png"
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Hats",
+      "Entries": {
+        "{{ModId}}_Basic_Oxygen_Mask": "{{ModId}}_Basic_Oxygen_Mask/Helps you breath at high altitudes./false/false//Basic Oxygen Mask/0/Mods/{{ModId}}/Circle"
+      }
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/CraftingRecipes",
+      "Entries": {
+        "{{ModId}}_Basic_Oxygen_Mask": "388 20 335 1/Home/{{ModId}}_Basic_Oxygen_Mask/false/default/"
       }
     }
   ]
