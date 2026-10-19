@@ -49,29 +49,27 @@ namespace SmartFellasMod
 
         public void SpawnCustomMonsters()
         {
-            Monitor.Log("Attempting to spawn custom monster.", LogLevel.Debug);
-            
-            //First, create a new custom monster.
-            //We will use a stone golem for starters.
-            Monster testMonster = new RockGolem(new Vector2(18, 16));
+            //Monitor.Log("Attempting to spawn custom monsters.", LogLevel.Debug);
 
-            //Verification that the monster exists.
-            this.Monitor.Log($"{testMonster.Name} has been created.", LogLevel.Debug);
+            //Spawn 3 Rock Golems for now.
+            //Note for positioning, Player starts off at 768, 1296.
+            SpawnRockGolem(1000, 1296);
+            SpawnRockGolem(2000, 1650);
+            SpawnRockGolem(2700, 1500);
+        }
 
-            //Add the monster to our list of monsters.
-            monsters[0] = testMonster;
-            Monitor.Log($"Monster has been added to list.", LogLevel.Debug);
+        /// <summary>
+        /// Spawn in a Rock Golem at a set location.
+        /// </summary>
+        /// <param name="xPos">The X position where the golem spawns.</param>
+        /// <param name="yPos">The starting Y position of the golem.</param>
+        private void SpawnRockGolem(int xPos, int yPos)
+        {
+            //Spawn a rock golem at a determined location.
+            Monster mon = new RockGolem(new Vector2(xPos, yPos));
 
-            monsters[0].Position = new Vector2(900, 1296);
-            Monitor.Log($"Monster has been added to list.", LogLevel.Debug);
-
-            //Then, we need to add this monster to the map itself.
-            Game1.currentLocation.addCharacter(monsters[0]);
-            Monitor.Log($"{testMonster.Name} is in the level.", LogLevel.Debug);
-
-            //Player starts off at 768, 1296.
-            Monitor.Log($"Player Position: {Game1.player.position.X}, {Game1.player.position.Y}", LogLevel.Debug);
-            Monitor.Log($"Enemy Position: {Game1.GetCharacterOfType<Monster>().position.X}, {Game1.GetCharacterOfType<Monster>().position.Y}", LogLevel.Debug);
+            //Add the golem to the game scene.
+            Game1.currentLocation.addCharacter(mon);
         }
     }
 }
