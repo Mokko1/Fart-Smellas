@@ -3,13 +3,16 @@ using Microsoft.Xna.Framework.Graphics;
 using StardewModdingAPI;
 using StardewModdingAPI.Events;
 using StardewValley;
+using System;
+using StardewValley.Objects;
+using System.ComponentModel.Design;
 
 namespace SmartFellasMod
 {
     /// <summary>
     /// Handles checks related to oxygen and draining additional energy
     /// </summary>
-    internal sealed class OxygenManager
+    public sealed class OxygenManager
     {
         private readonly IMonitor Monitor;
 
@@ -26,23 +29,54 @@ namespace SmartFellasMod
         private float lastStamina;
 
         // higher the less oxygen the player has access to, used to add more energy lost 
-        // its minimum is 0 and max is 1
-        private float oxygenDeprivation = 0;
+        // its minimum is 0 and max is 2
+        private static float oxygenDeprivation = 0;
 
-        private float OxygenDeprivation
+        private static float OxygenDeprivation
         {
             get { return oxygenDeprivation; }
             set
             {
 
                 //ensure oxygenDeprivation is assigned correctly
-                if (value >= 0 && value <= 2)
-                {
-                    oxygenDeprivation = value;
-                }
+                oxygenDeprivation = Math.Clamp(value, 0f, 2f);
             }
         }
 
+        // used to check the oxygen protection values of oxygen masks
+        // the deprivation value will be subtracted by the protection value to get actual deprivation amount
+        private readonly Dictionary<string, float> OxygenMaskProtection = new()
+        {
+            [$"{ModConstants.ContentPackId}_Basic_Oxygen_Mask"] = 0.5f
+        };
+
+        private float GetOxygenProtection()
+        {
+            // get whatever hat the player is wearing
+            Hat playerHat = Game1.player.hat.Value;
+
+            // the player isn't wearing a hat so they can't have any oxygen protection from a mask
+            if (playerHat == null)
+            {
+                return 0f;
+            }
+
+            string hatName = playerHat.Name;
+
+            // if they are wearing something that gives protection
+            if (OxygenMaskProtection.ContainsKey(hatName))
+            {
+                this.Monitor.Log($"Protection amount: {OxygenMaskProtection[hatName]}", LogLevel.Info);
+
+                // return the amount of protection given
+                return OxygenMaskProtection[hatName];
+            }
+            else{
+                // not wearing a mask that gives protection
+                return 0f;
+            }
+
+        }
 
         public Texture2D customTexture;
 
@@ -123,7 +157,7 @@ namespace SmartFellasMod
                 float energyLost = lastStamina - currentStamina;
 
                 // add additional energy loss if oxygenDeprivation is above 0
-                float adjustedLoss = energyLost * oxygenDeprivation;
+                float adjustedLoss = energyLost * Math.Clamp(oxygenDeprivation - GetOxygenProtection(), 0, 999);
                 Game1.player.Stamina -= adjustedLoss;
 
                 // Update tracker 
@@ -165,6 +199,10 @@ namespace SmartFellasMod
             {
                 this.Monitor.Log($"'{args[0]}' is not a valid float number.", LogLevel.Error);
             }
+        }
+        public static void SetPlayerOxygen(float value)
+        {
+            OxygenDeprivation = value;
         }
     }
 }
