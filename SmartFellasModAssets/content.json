@@ -169,21 +169,21 @@
     },
     {
       "Action": "Load",
-      "Target": "Mods/{{ModId}}/Oxygen_Mask_Sprite",
+      "Target": "{{ModId}}_OxygenMaskSprite",
       "FromFile": "assets/oxygen_mask.png"
     },
     {
       "Action": "EditData",
       "Target": "Data/Hats",
       "Entries": {
-        "{{ModId}}_Basic_Oxygen_Mask": "{{ModId}}_Basic_Oxygen_Mask/Helps you breathe at high altitudes./false/false//Basic Oxygen Mask/0/Mods/{{ModId}}/Oxygen_Mask_Sprite"
+        "{{ModId}}_Basic_Oxygen_Mask": "{{ModId}}_Basic_Oxygen_Mask/Helps you breathe at high altitudes./false/false//Basic Oxygen Mask/0/{{ModId}}_OxygenMaskSprite"
       }
     },
     {
       "Action": "EditData",
       "Target": "Data/CraftingRecipes",
       "Entries": {
-        "{{ModId}}_Basic_Oxygen_Mask": "388 20 335 1/Home/{{ModId}}_Basic_Oxygen_Mask/false/default/"
+        "{{ModId}}_Basic_Oxygen_Mask": "388 20 335 1/Home/(H){{ModId}}_Basic_Oxygen_Mask/false/default/Basic Oxygen Mask"
       }
     }
   ]
