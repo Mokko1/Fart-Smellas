@@ -52,7 +52,7 @@ namespace SmartFellasMod
         // the deprivation value will be subtracted by the protection value to get actual deprivation amount
         private readonly Dictionary<string, float> OxygenMaskProtection = new()
         {
-            [$"{ModConstants.ContentPackId}_Basic_Oxygen_Mask"] = 0.5f
+            [$"{ModConstants.ContentPackId}_Basic_Oxygen_Mask"] = 0.3f
         };
 
         /// <summary>
@@ -67,6 +67,12 @@ namespace SmartFellasMod
             // the player isn't wearing a hat so they can't have any oxygen protection from a mask
             if (playerHat == null)
             {
+                if (oxygenProtectionLevel != 0)
+                {
+                    SetAdjustedDeprivationLevel();
+                    currentHatName = "";
+                }
+
                 oxygenProtectionLevel = 0f;
                 return;
             }
@@ -134,11 +140,15 @@ namespace SmartFellasMod
                 layerDepth: 0
             );
 
-            Vector2 stringSize = Game1.dialogueFont.MeasureString(adjustedOxygenDeprivation.ToString());
+            // this fixes any rounding point errors
+            string displayValue = adjustedOxygenDeprivation.ToString("0.0");
+
+
+            Vector2 stringSize = Game1.dialogueFont.MeasureString(displayValue.ToString());
 
             spriteBatch.DrawString(
                 spriteFont: Game1.dialogueFont,
-                text: adjustedOxygenDeprivation.ToString(),
+                text: displayValue.ToString(),
                 position: new Vector2(84 - stringSize.X / 2, screenHeight * (float)(5.0/6.0) + 12),
                 color: Color.White
             );
