@@ -14,7 +14,7 @@ namespace SmartFellasMod
         private PlayerWarpHandler playerWarpHandler;
         private RockHandler rockHandler;
         private QuestHandler questHandler;
-
+        private EventHandler eventHandler;
         /*********
         ** Public methods
         *********/
@@ -27,6 +27,7 @@ namespace SmartFellasMod
             playerWarpHandler = new PlayerWarpHandler(this.Monitor);
             rockHandler = new RockHandler(this.Monitor);
             questHandler = new QuestHandler(this.Monitor);
+            eventHandler = new EventHandler(this.Monitor);
 
             // Path to the assets mod
             string packPath = Path.Combine(
@@ -44,6 +45,7 @@ namespace SmartFellasMod
             helper.Events.Player.Warped += questHandler.Warped;
             helper.Events.Player.Warped += playerWarpHandler.OnPlayerWarped;
             helper.Events.Player.Warped += rockHandler.OnPlayerWarped;
+            helper.Events.Player.Warped += eventHandler.OnPlayerWarped;
 
             helper.Events.Display.RenderedHud += oxygenManager.RenderOxygenHud;
 

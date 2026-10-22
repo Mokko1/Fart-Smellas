@@ -50,9 +50,8 @@ namespace SmartFellasMod
         {
             //debug warp SmartFellas.AscensionCode.Content_baseCamp
             Monitor.Log(warpedEvent.NewLocation.Name, LogLevel.Info);
-            if(warpedEvent.NewLocation.Name == "SmartFellas.AscensionCode.Content_BaseCamp" && !hasEntered)
+            if(warpedEvent.NewLocation.Name == "SmartFellas.AscensionCode.Content_mountainLevel" && !hasEntered)
             {
-                Monitor.Log("entered", LogLevel.Info);
                 Furniture magicRock = ItemRegistry.Create<Furniture>("(F)SmartFellas.AscensionCode.Content_magic_rock");
                 magicRock.SetPlacement(20,20);
                 Game1.getLocationFromName("SmartFellas.AscensionCode.Content_BaseCamp").furniture.Add(magicRock);
@@ -73,10 +72,10 @@ namespace SmartFellasMod
                     this.Monitor.Log("tile", LogLevel.Info);
                     if (location.terrainFeatures.TryGetValue(vector2, out var feature))
                     {
-                        this.Monitor.Log(feature.ToString(), LogLevel.Info);
+                       
                         if (feature is HoeDirt dirt)
                         {
-                            this.Monitor.Log("yes", LogLevel.Info);
+                        
                             dirt.fertilizer.Value = "DeluxeFertilizer";
                         }
                     }

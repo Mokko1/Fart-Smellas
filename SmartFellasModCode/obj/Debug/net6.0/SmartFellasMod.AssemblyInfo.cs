@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SmartFellasMod")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+42c24de5b935296fd87131aeb9e0fdb56876196e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+de04d72848d903f8127e801af2593ffb18df8e1a")]
 [assembly: System.Reflection.AssemblyProductAttribute("SmartFellasMod")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SmartFellasMod")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
