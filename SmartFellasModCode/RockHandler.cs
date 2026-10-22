@@ -50,11 +50,7 @@ namespace SmartFellasMod
         {
             //debug warp SmartFellas.AscensionCode.Content_baseCamp
             Monitor.Log(warpedEvent.NewLocation.Name, LogLevel.Info);
-<<<<<<< Updated upstream
-            if(warpedEvent.NewLocation.Name == "SmartFellas.AscensionCode.Content_mountainLevel")
-=======
             if(warpedEvent.NewLocation.Name == "SmartFellas.AscensionCode.Content_MountainLevel")
->>>>>>> Stashed changes
             {
                 this.Monitor.Log("correct", LogLevel.Info);
                 Furniture magicRock = ItemRegistry.Create<Furniture>("(F)SmartFellas.AscensionCode.Content_magic_rock");
