@@ -31,6 +31,9 @@ namespace SmartFellasMod
         // higher the less oxygen the player has access to, used to add more energy lost 
         // its minimum is 0 and max is 2
         private static float oxygenDeprivation = 0;
+        private static float adjustedOxygenDeprivation = 0;
+        private static float oxygenProtectionLevel = 0;
+        private string currentHatName = "";
 
         private static float OxygenDeprivation
         {
@@ -40,6 +43,8 @@ namespace SmartFellasMod
 
                 //ensure oxygenDeprivation is assigned correctly
                 oxygenDeprivation = Math.Clamp(value, 0f, 2f);
+                SetAdjustedDeprivationLevel();
+
             }
         }
 
@@ -47,10 +52,14 @@ namespace SmartFellasMod
         // the deprivation value will be subtracted by the protection value to get actual deprivation amount
         private readonly Dictionary<string, float> OxygenMaskProtection = new()
         {
-            [$"{ModConstants.ContentPackId}_Basic_Oxygen_Mask"] = 0.5f
+            [$"{ModConstants.ContentPackId}_Basic_Oxygen_Mask"] = 0.3f
         };
 
-        private float GetOxygenProtection()
+        /// <summary>
+        /// This find the player's hat and assigns its oxygenProtection level according to the OxygenMaskProtection dictionary
+        /// currently this is called every frame, there is likely an event or check we can do to circumvent the need for this
+        /// </summary>
+        private void SetOxygenProtection()
         {
             // get whatever hat the player is wearing
             Hat playerHat = Game1.player.hat.Value;
@@ -58,23 +67,45 @@ namespace SmartFellasMod
             // the player isn't wearing a hat so they can't have any oxygen protection from a mask
             if (playerHat == null)
             {
-                return 0f;
-            }
+                if (oxygenProtectionLevel != 0)
+                {
+                    SetAdjustedDeprivationLevel();
+                    currentHatName = "";
+                }
 
-            string hatName = playerHat.Name;
+                oxygenProtectionLevel = 0f;
+                return;
+            }
+            else if (currentHatName == playerHat.Name)
+            {
+                // bail, this is the same hat as the last check
+                return;
+            }
+            
+
+            currentHatName = playerHat.Name;
 
             // if they are wearing something that gives protection
-            if (OxygenMaskProtection.ContainsKey(hatName))
+            if (OxygenMaskProtection.ContainsKey(currentHatName))
             {
-                this.Monitor.Log($"Protection amount: {OxygenMaskProtection[hatName]}", LogLevel.Info);
-
                 // return the amount of protection given
-                return OxygenMaskProtection[hatName];
+                oxygenProtectionLevel = OxygenMaskProtection[currentHatName];
+                this.Monitor.Log($"Protection amount: {oxygenProtectionLevel}", LogLevel.Info);
+                SetAdjustedDeprivationLevel();
             }
-            else{
+            else
+            {
                 // not wearing a mask that gives protection
-                return 0f;
+                oxygenProtectionLevel = 0f;
+                return;
+
             }
+
+        }
+
+        private static void SetAdjustedDeprivationLevel()
+        {
+            adjustedOxygenDeprivation = Math.Clamp(oxygenDeprivation - oxygenProtectionLevel, 0, 999);
 
         }
 
@@ -109,11 +140,15 @@ namespace SmartFellasMod
                 layerDepth: 0
             );
 
-            Vector2 stringSize = Game1.dialogueFont.MeasureString(oxygenDeprivation.ToString());
+            // this fixes any rounding point errors
+            string displayValue = adjustedOxygenDeprivation.ToString("0.0");
+
+
+            Vector2 stringSize = Game1.dialogueFont.MeasureString(displayValue.ToString());
 
             spriteBatch.DrawString(
                 spriteFont: Game1.dialogueFont,
-                text: oxygenDeprivation.ToString(),
+                text: displayValue.ToString(),
                 position: new Vector2(84 - stringSize.X / 2, screenHeight * (float)(5.0/6.0) + 12),
                 color: Color.White
             );
@@ -141,6 +176,8 @@ namespace SmartFellasMod
             if (!Context.IsWorldReady || Game1.player == null)
                 return;
 
+            SetOxygenProtection();
+
             AdjustStaminaForOxygen();
         }
 
@@ -156,8 +193,8 @@ namespace SmartFellasMod
             {
                 float energyLost = lastStamina - currentStamina;
 
-                // add additional energy loss if oxygenDeprivation is above 0
-                float adjustedLoss = energyLost * Math.Clamp(oxygenDeprivation - GetOxygenProtection(), 0, 999);
+                // add additional energy loss if adjustedOxygenDeprivation is above 0
+                float adjustedLoss = energyLost * adjustedOxygenDeprivation;
                 Game1.player.Stamina -= adjustedLoss;
 
                 // Update tracker 
