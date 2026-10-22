@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="left-down" width="65" height="36" tilewidth="16" tileheight="16" infinite="0" nextlayerid="15" nextobjectid="1">
  <properties>
+  <property name="LocationContext" value="SmartFellas.AscensionCode.Content_AlwaysSnow"/>
+  <property name="Outdoors" type="bool" value="true"/>
   <property name="Warp" value="42 32 SmartFellas.AscensionCode.Content_Buffer 15 3 38 24 SmartFellas.AscensionCode.Content_MountainLevel 38 27 38 23 SmartFellas.AscensionCode.Content_MountainLevel 38 27"/>
  </properties>
  <tileset firstgid="1" source="spring_outdoorsTileSheet.tsx"/>

@@ -78,9 +78,20 @@
       ]
     },
     {
-      "Action": "Load",
-      "Target": "Maps/{{ModId}}_mountainLevel",
-      "FromFile": "Maps/mountainLevel.tmx"
+      "Action": "EditData",
+      "Target": "Data/LocationContexts",
+      "Entries": {
+        "{{ModId}}_AlwaysSnow": {
+          "SeasonOverride": "winter",
+          "WeatherConditions": [
+            {
+              "Id": "Default",
+              "Weather": "Snow"
+            }
+          ],
+          "AllowRainTotem": false
+        }
+      }
     },
     {
       "Action": "EditMap",
