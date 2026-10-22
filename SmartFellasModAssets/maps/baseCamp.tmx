@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.10" tiledversion="1.12.2" orientation="orthogonal" renderorder="left-down" width="65" height="36" tilewidth="16" tileheight="16" infinite="0" nextlayerid="15" nextobjectid="1">
  <properties>
-  <property name="Warp" value="12 21 SmartFellas.AscensionCode.Content_Buffer 11 3 13 21 SmartFellas.AscensionCode.Content_Buffer 15 3 11 21 SmartFellas.AscensionCode.Content_Buffer 15 3 18 16 SmartFellas.AscensionCode.Content_MountainLevel 11 23 18 15 SmartFellas.AscensionCode.Content_MountainLevel 11 23"/>
+  <property name="Warp" value="42 32 SmartFellas.AscensionCode.Content_Buffer 15 3 38 24 SmartFellas.AscensionCode.Content_MountainLevel 38 27 38 23 SmartFellas.AscensionCode.Content_MountainLevel 38 27"/>
  </properties>
  <tileset firstgid="1" source="spring_outdoorsTileSheet.tsx"/>
  <tileset firstgid="1976" source="winter_outdoorsTileSheet.tsx"/>
  <tileset firstgid="3951" source="mine_frost.tsx"/>
- <tileset firstgid="4239" source="../../../../RIT 4.1/Game Modding/Tiled/TileSheets/winter_outdoorsTileSheet.tsx"/>
  <layer id="2" name="Back-1" width="65" height="36">
   <data encoding="csv">
 2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,2397,
