@@ -38,7 +38,7 @@ namespace SmartFellasMod
             //Thor - Added this line in order to know exactly where the player is in our mod so I can add things right.
             this.Monitor.Log($"{warpedEvent.NewLocation.Name}", LogLevel.Debug);
 
-            if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_BaseCamp")
+            if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_MountainLevel")
             {
                 SpawnCustomMonsters();
 
@@ -57,13 +57,14 @@ namespace SmartFellasMod
         /// </summary>
         public void SpawnCustomMonsters()
         {
-            //Monitor.Log("Attempting to spawn custom monsters.", LogLevel.Debug);
-
             //Spawn 3 Rock Golems for now.
-            //Note for positioning, Player starts off at 768, 1296.
-            SpawnRockGolem(1000, 1296);
-            SpawnRockGolem(2000, 1650);
-            SpawnRockGolem(2700, 1500);
+            //Note for positioning:
+            //Player starts off Mountain Level at X:2432 Y:1744.
+            SpawnRockGolem(1750, 1296);
+            SpawnRockGolem(2000, 1400);
+            SpawnRockGolem(2400, 1250);
+
+            Monitor.Log("Player Position: " + Game1.player.Position, LogLevel.Debug);
         }
 
         /// <summary>
