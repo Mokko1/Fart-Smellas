@@ -52,18 +52,32 @@ namespace SmartFellasMod
             }
         }
 
-
+        /// <summary>
+        /// Spawn custom monsters at manually chosen positions.
+        /// </summary>
         public void SpawnCustomMonsters()
         {
-            //First, create a new custom monster.
-            //We will use a stone golem for starters.
-            Monster testMonster = new RockGolem(new Vector2(15, 6));
+            //Monitor.Log("Attempting to spawn custom monsters.", LogLevel.Debug);
 
-            //Verification that the monster exists.
-            this.Monitor.Log($"{testMonster.Name}", LogLevel.Debug);
+            //Spawn 3 Rock Golems for now.
+            //Note for positioning, Player starts off at 768, 1296.
+            SpawnRockGolem(1000, 1296);
+            SpawnRockGolem(2000, 1650);
+            SpawnRockGolem(2700, 1500);
+        }
 
-            //Then, we need to add this monster to the map itself.
-            Game1.currentLocation.addCharacter(testMonster);
+        /// <summary>
+        /// Spawn in a Rock Golem at a set location.
+        /// </summary>
+        /// <param name="xPos">The X position where the golem spawns.</param>
+        /// <param name="yPos">The starting Y position of the golem.</param>
+        private void SpawnRockGolem(int xPos, int yPos)
+        {
+            //Spawn a rock golem at a determined location.
+            Monster mon = new RockGolem(new Vector2(xPos, yPos));
+
+            //Add the golem to the game scene.
+            Game1.currentLocation.addCharacter(mon);
         }
     }
 }
