@@ -6,6 +6,7 @@ using StardewValley;
 using System;
 using StardewValley.Objects;
 using System.ComponentModel.Design;
+using Microsoft.Xna.Framework.Input;
 
 namespace SmartFellasMod
 {
@@ -117,41 +118,86 @@ namespace SmartFellasMod
         *********/
 
         /// <summary>
-        /// Render the hud element for the oxygen mechanic using the actual value as text
+        /// Render the hud element for the oxygen mechanic using the actual value of the field
         /// </summary>
         public void RenderOxygenHud(object sender, RenderedHudEventArgs e)
         {
-            if (!Context.IsWorldReady)
+            // Don't run in menu, don't run when a cutscene is playing
+            if (!Context.IsWorldReady || Game1.eventUp)
                 return;
 
-            SpriteBatch spriteBatch = e.SpriteBatch;
-            int screenWidth = Game1.graphics.GraphicsDevice.Viewport.Width;
+            // Only show in some locations
+            string currentLocation = Game1.currentLocation.Name;
+            if (!currentLocation.Contains("SmartFellas"))
+                return;
+            currentLocation = currentLocation.Substring(currentLocation.LastIndexOf('_') + 1);
+            string[] validLocations = {"BaseCamp", "MountainLevel"};
+            Console.WriteLine(currentLocation);
+
+            if (!validLocations.Contains(currentLocation))
+                return;
+
+
             int screenHeight = Game1.graphics.GraphicsDevice.Viewport.Height;
 
+            // true if the mouse is hovering over the new O UI
+            Rectangle oxyBounds = new Rectangle(50, screenHeight - (56 * 4 + 10), 48, 200);
+            MouseState mouse = Mouse.GetState();
+            bool hovering = oxyBounds.Contains(mouse.X, mouse.Y);
+
+            // Blank pixel for displaying the actual moving bar
+            Texture2D pixelTexture = new Texture2D(Game1.graphics.GraphicsDevice, 1, 1);
+            pixelTexture.SetData(new[] { Color.White });
+
+
+            SpriteBatch spriteBatch = e.SpriteBatch;
+
+            // Draw the bar holder
             spriteBatch.Draw(
                 texture: customTexture,
-                position: new Vector2(50, screenHeight * (float)(5.0/6.0)),
+                position: new Vector2(50, screenHeight  - (56 * 4 + 10)),
                 sourceRectangle: null,
                 color: Color.White,
                 rotation: 0,
                 origin: Vector2.Zero,
-                scale: 2,
+                scale: 4,
                 effects: SpriteEffects.None,
                 layerDepth: 0
             );
 
-            // this fixes any rounding point errors
-            string displayValue = adjustedOxygenDeprivation.ToString("0.0");
+            // Draw both parts of the bar (lighter majority and slimmer, darker topper)
+            spriteBatch.Draw(
+                texture: pixelTexture,
+                position: new Vector2(86, screenHeight - 18),
+                sourceRectangle: null,
+                color: Color.Aqua,
+                rotation: (float)(Math.PI),
+                origin: Vector2.Zero,
+                scale: new Vector2(24, 160 * adjustedOxygenDeprivation),
+                effects: SpriteEffects.None,
+                layerDepth: 0
+                );
+            spriteBatch.Draw(
+                texture: pixelTexture,
+                position: new Vector2(86, screenHeight - 18 - 160 * adjustedOxygenDeprivation),
+                sourceRectangle: null,
+                color: new Color(r: 0, g: 225, b:225),
+                rotation: (float)(Math.PI),
+                origin: Vector2.Zero,
+                scale: new Vector2(24, 4),
+                effects: SpriteEffects.None,
+                layerDepth: 0
+                );
 
-
-            Vector2 stringSize = Game1.dialogueFont.MeasureString(displayValue.ToString());
-
-            spriteBatch.DrawString(
-                spriteFont: Game1.dialogueFont,
-                text: displayValue.ToString(),
-                position: new Vector2(84 - stringSize.X / 2, screenHeight * (float)(5.0/6.0) + 12),
-                color: Color.White
-            );
+            // If the mouse is hovering ofver the element, display oxygen as text
+            if (hovering) {
+                spriteBatch.DrawString(
+                    spriteFont: Game1.dialogueFont,
+                    text: ((int)(adjustedOxygenDeprivation * 100)).ToString() + "/100",
+                    position: new Vector2(105, screenHeight - (56 * 4 + 10) + 70),
+                    color: Color.White
+                );
+            }
         }
 
         /// <summary>

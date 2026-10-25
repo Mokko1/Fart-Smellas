@@ -36,7 +36,7 @@ namespace SmartFellasMod
             "SmartFellasModAssets"
             );
             IContentPack pack = helper.ContentPacks.CreateFake(packPath);
-            oxygenManager.customTexture = pack.ModContent.Load<Texture2D>("assets/circle.png");
+            oxygenManager.customTexture = pack.ModContent.Load<Texture2D>("assets/oxygenBar.png");
 
             // subscribe into the game loop updates
             helper.Events.GameLoop.UpdateTicked += oxygenManager.OnUpdateTicked;
