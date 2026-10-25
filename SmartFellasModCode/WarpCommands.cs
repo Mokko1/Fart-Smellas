@@ -41,7 +41,7 @@ namespace SmartFellasMod
                 return;
             }
 
-            Game1.warpFarmer(locationName, 5, 5, false);
+            Game1.warpFarmer(locationName, 35, 28, false);
             this.Monitor.Log($"Warped to {locationName}!", LogLevel.Info);
         }
     }
