@@ -138,38 +138,20 @@
           "CreateOnLoad": {
             "MapPath": "Maps/{{ModId}}_buffer"
           }
-        }
-      }
-
-    },
-    {
-      "Action": "EditData",
-      "Target": "Data/Locations",
-      "Entries": {
+        },
         "{{ModId}}_BaseCamp": {
           "CreateOnLoad": {
             "MapPath": "Maps/{{ModId}}_baseCamp"
           }
-        }
-      }
-    },
-    {
-      "Action": "EditData",
-      "Target": "Data/Locations",
-      "Entries": {
+        },
         "{{ModId}}_MountainLevel": {
           "CreateOnLoad": {
             "MapPath": "Maps/{{ModId}}_mountainLevel"
-          }
+          },
+          "isDangerous": true
         }
       }
-    },
-    {
-      "Action": "EditData",
-      "Target": "Data/Furniture",
-      "Entries": {
-        "{{ModId}}_magic_rock": "{{ModId}}_magic_rock/decor/1 1/1 1/1/1000/-1/magic rock/0/"
-      }
+
     },
     {
       "Action": "EditData",

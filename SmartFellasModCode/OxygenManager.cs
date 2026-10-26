@@ -122,6 +122,7 @@ namespace SmartFellasMod
         /// </summary>
         public void RenderOxygenHud(object sender, RenderedHudEventArgs e)
         {
+
             // Don't run in menu, don't run when a cutscene is playing
             if (!Context.IsWorldReady || Game1.eventUp)
                 return;
@@ -132,7 +133,6 @@ namespace SmartFellasMod
                 return;
             currentLocation = currentLocation.Substring(currentLocation.LastIndexOf('_') + 1);
             string[] validLocations = {"BaseCamp", "MountainLevel"};
-            Console.WriteLine(currentLocation);
 
             if (!validLocations.Contains(currentLocation))
                 return;
@@ -140,8 +140,11 @@ namespace SmartFellasMod
 
             int screenHeight = Game1.graphics.GraphicsDevice.Viewport.Height;
 
+            // Offset to move this element elsewhere
+            Vector2 posOffset = new(50, screenHeight - (56 * 4 + 10));
+
             // true if the mouse is hovering over the new O UI
-            Rectangle oxyBounds = new Rectangle(50, screenHeight - (56 * 4 + 10), 48, 200);
+            Rectangle oxyBounds = new Rectangle((int) posOffset.X, (int) posOffset.Y, 48, 200);
             MouseState mouse = Mouse.GetState();
             bool hovering = oxyBounds.Contains(mouse.X, mouse.Y);
 
@@ -164,11 +167,11 @@ namespace SmartFellasMod
                 effects: SpriteEffects.None,
                 layerDepth: 0
             );
-
+            //216
             // Draw both parts of the bar (lighter majority and slimmer, darker topper)
             spriteBatch.Draw(
                 texture: pixelTexture,
-                position: new Vector2(86, screenHeight - 18),
+                position: new Vector2(posOffset.X + 36, posOffset.Y + 216),
                 sourceRectangle: null,
                 color: Color.Aqua,
                 rotation: (float)(Math.PI),
@@ -179,7 +182,7 @@ namespace SmartFellasMod
                 );
             spriteBatch.Draw(
                 texture: pixelTexture,
-                position: new Vector2(86, screenHeight - 18 - 160 * adjustedOxygenDeprivation),
+                position: new Vector2(posOffset.X + 36, posOffset.Y + 56 * adjustedOxygenDeprivation),
                 sourceRectangle: null,
                 color: new Color(r: 0, g: 225, b:225),
                 rotation: (float)(Math.PI),
@@ -194,7 +197,7 @@ namespace SmartFellasMod
                 spriteBatch.DrawString(
                     spriteFont: Game1.dialogueFont,
                     text: ((int)(adjustedOxygenDeprivation * 100)).ToString() + "/100",
-                    position: new Vector2(105, screenHeight - (56 * 4 + 10) + 70),
+                    position: new Vector2(posOffset.X + 55, posOffset.Y + 70),
                     color: Color.White
                 );
             }
