@@ -17,7 +17,8 @@
       "Action": "EditData",
       "Target": "Data/Quests",
       "Entries": {
-        "StartingQuest": "Location/Cool Test Quest B)/This is a very cool template quest/Eat a bean./-1/-1/100/false"
+        "StartingQuest": "Location/Ascension/You've been sent a letter about a mountain expedition in the mountains northwest of your farm. Who knows what you could find!/Meet the expedition at the mountain northwest of your farm./SmartFellas.AscensionCode.Content_BaseCamp/Stage1Quest/0/-1/false",
+        "Stage1Quest": "Location/Ascension/You've been told about the dangers that await on the mountain, but there's also treasure to seek at the top!/Pass the first level of the mountain./SmartFellas.AscensionCode.Content_MountainLevel/-1/500/-1/false"
       }
     },
     {

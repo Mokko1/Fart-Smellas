@@ -139,9 +139,10 @@ namespace SmartFellasMod
 
 
             int screenHeight = Game1.graphics.GraphicsDevice.Viewport.Height;
+            int screenWidth = Game1.graphics.GraphicsDevice.Viewport.Width;
 
             // Offset to move this element elsewhere
-            Vector2 posOffset = new(50, screenHeight - (56 * 4 + 10));
+            Vector2 posOffset = new(screenWidth - 56, screenHeight - (56 * 4 + 10) * 2);
 
             // true if the mouse is hovering over the new O UI
             Rectangle oxyBounds = new Rectangle((int) posOffset.X, (int) posOffset.Y, 48, 200);
@@ -158,7 +159,7 @@ namespace SmartFellasMod
             // Draw the bar holder
             spriteBatch.Draw(
                 texture: customTexture,
-                position: new Vector2(50, screenHeight  - (56 * 4 + 10)),
+                position: posOffset,
                 sourceRectangle: null,
                 color: Color.White,
                 rotation: 0,
@@ -182,7 +183,7 @@ namespace SmartFellasMod
                 );
             spriteBatch.Draw(
                 texture: pixelTexture,
-                position: new Vector2(posOffset.X + 36, posOffset.Y + 56 * adjustedOxygenDeprivation),
+                position: new Vector2(posOffset.X + 36, posOffset.Y + 216 - 160 * adjustedOxygenDeprivation),
                 sourceRectangle: null,
                 color: new Color(r: 0, g: 225, b:225),
                 rotation: (float)(Math.PI),
@@ -197,7 +198,7 @@ namespace SmartFellasMod
                 spriteBatch.DrawString(
                     spriteFont: Game1.dialogueFont,
                     text: ((int)(adjustedOxygenDeprivation * 100)).ToString() + "/100",
-                    position: new Vector2(posOffset.X + 55, posOffset.Y + 70),
+                    position: new Vector2(posOffset.X - 155, posOffset.Y + 70),
                     color: Color.White
                 );
             }
