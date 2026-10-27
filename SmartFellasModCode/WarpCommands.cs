@@ -31,7 +31,7 @@ namespace SmartFellasMod
             }
 
             // currently hardcoded to warp to basecamp
-            string locationName = $"{ModConstants.ContentPackId}_BaseCamp";
+            string locationName = $"{ModConstants.ContentPackId}_mountain_2";
 
             // checks if this warp would fail
             if (Game1.getLocationFromName(locationName) == null)
