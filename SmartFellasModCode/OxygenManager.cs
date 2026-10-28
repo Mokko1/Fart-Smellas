@@ -121,7 +121,7 @@ namespace SmartFellasMod
         /// </summary>
         public void RenderOxygenHud(object sender, RenderedHudEventArgs e)
         {
-            if (!Context.IsWorldReady)
+            if (!Context.IsWorldReady || adjustedOxygenDeprivation <= 0)
                 return;
 
             SpriteBatch spriteBatch = e.SpriteBatch;
