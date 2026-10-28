@@ -38,17 +38,29 @@ namespace SmartFellasMod
             //Thor - Added this line in order to know exactly where the player is in our mod so I can add things right.
             this.Monitor.Log($"{warpedEvent.NewLocation.Name}", LogLevel.Debug);
 
+
+            if (warpedEvent.NewLocation.TryGetMapPropertyAs("OxygenDeprivation", out double deprivationValue, required: false))
+            {
+                OxygenManager.SetPlayerOxygen((float)deprivationValue);
+            }
+            else
+            {
+                OxygenManager.SetPlayerOxygen(0f);
+
+            }
+
+
             if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_BaseCamp")
             {
                 SpawnCustomMonsters();
 
                 // air starts to thin
-                OxygenManager.SetPlayerOxygen(0.5f);
+                //OxygenManager.SetPlayerOxygen(0.5f);
             }
             else if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_MountainLevel")
             {
                 // air thins more
-                OxygenManager.SetPlayerOxygen(1f);
+                //OxygenManager.SetPlayerOxygen(1f);
             }
         }
 
