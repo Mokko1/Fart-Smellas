@@ -36,6 +36,11 @@
     },
     {
       "Action": "Load",
+      "Target": "Maps/{{ModId}}_Mountain_2",
+      "FromFile": "Maps/mountain_2.tmx"
+    },
+    {
+      "Action": "Load",
       "Target": "Maps/{{ModId}}_baseCamp",
       "FromFile": "Maps/baseCamp.tmx"
     },
@@ -138,25 +143,17 @@
           "CreateOnLoad": {
             "MapPath": "Maps/{{ModId}}_buffer"
           }
-        }
-      }
-
-    },
-    {
-      "Action": "EditData",
-      "Target": "Data/Locations",
-      "Entries": {
+        },
+        "{{ModId}}_Mountain_2": {
+          "CreateOnLoad": {
+            "MapPath": "Maps/{{ModId}}_mountain_2"
+          }
+        },
         "{{ModId}}_BaseCamp": {
           "CreateOnLoad": {
             "MapPath": "Maps/{{ModId}}_baseCamp"
           }
-        }
-      }
-    },
-    {
-      "Action": "EditData",
-      "Target": "Data/Locations",
-      "Entries": {
+        },
         "{{ModId}}_MountainLevel": {
           "CreateOnLoad": {
             "MapPath": "Maps/{{ModId}}_mountainLevel"
@@ -168,15 +165,23 @@
       "Action": "EditData",
       "Target": "Data/Furniture",
       "Entries": {
-        "{{ModId}}_magic_rock": "{{ModId}}_magic_rock/decor/1 1/1 1/1/1000/-1/magic rock/0/"
+        "{{ModId}}_magic_rock": "{{ModId}}_magic_rock/decor/1 1/1 1/1/1000/-1/magic rock/0/Mods\\\\{{ModId}}\\\\magic_rock_texture"
       }
     },
     {
       "Action": "EditData",
-      "Target": "Data/Furniture",
+      "Target": "Data/FurnitureExtensionData",
       "Entries": {
-        "{{ModId}}_magic_rock": "{{ModId}}_magic_rock/decor/1 1/1 1/1/1000/-1/magic rock/0/"
+        "Mods\\{{ModId}}\\magic_rock_texture": {
+          "AnimationFrames":,
+          "AnimationFrameTime": 200
+        }
       }
+    },
+    {
+      "Action": "Load",
+      "Target": "Mods/{{ModId}}/magic_rock_texture",
+      "FromFile": "assets/magic_rock.png"
     },
     {
       "Action": "Load",
@@ -197,20 +202,20 @@
         "{{ModId}}_Basic_Oxygen_Mask": "388 20 335 1/Home/(H){{ModId}}_Basic_Oxygen_Mask/false/default/Basic Oxygen Mask"
       }
     },
-    { 
+    {
       "LogName": "basecampeventinclude",
       "Action": "Load",
       "Target": "Data/Events/SmartFellas.AscensionCode.Content_BaseCamp",
       "FromFile": "assets/BaseCampEvent.json"
     },
     {
-       "LogName": "mountain entry events",
-            "Action": "EditData",
-            "Target": "Data/Events/SmartFellas.AscensionCode.Content_BaseCamp",
-            "Entries": {
-               
-                "basecamp_scene_one_1022/e 112/w sunny": "playful/-50 -50/farmer 40 30 23 Alex 32 29 2 Haley 30 31 1/skippable/viewport 35 28 clamp/pause 400/move farmer -4 0 3/pause 300/emote farmer 8/pause 500/emote Haley 16/pause 300/speak Alex \" Hey there @, Im Joseph, welcome to the Stardew Mountains, we just recently set up an expedition company to get some people exploring the amazing sights these mountains can have.  \"/pause 500/speak Haley \"  Not just sighs, but thrill and adventure. Legends say, there is incredibly rare treasure around these parts\"/pause 500/speak Alex \" Now Clarise, we can't be going around getting everyone's hopes up, but yes this place was once known for having many treasure hunters taking a shot at bringing home some cool stuff.\"/pause 500/speak Alex \" It's why they ended up having to close down the mountains to visitors, it got too dangerous with all those people. So that's what we're here for, to make climbing the mountain a safe experience.\"/pause 300/speak Haley \" So, while you're here let me give you the rundown of what you'll be doing here, we split up the mountains into different parts based on how high you are and how difficult it is to climb.\"/pause 300/ speak Haley \" The higher up you are the less oxygen there will be and harder monsters there will be, so keep that in mind as you climb. When you reach a new section though, there will be an elevator that can take you back down here to the base camp if you don't think you can continue\"/pause 300/ speak Alex \" Yep that about sums it up, good luck out there @ \"/pause 1000/globalFade/viewport -999 -999/end"
-                 }
+      "LogName": "mountain entry events",
+      "Action": "EditData",
+      "Target": "Data/Events/SmartFellas.AscensionCode.Content_BaseCamp",
+      "Entries": {
+
+        "basecamp_scene_one_1022/e 112/w sunny": "playful/-50 -50/farmer 40 30 23 Alex 32 29 2 Haley 30 31 1/skippable/viewport 35 28 clamp/pause 400/move farmer -4 0 3/pause 300/emote farmer 8/pause 500/emote Haley 16/pause 300/speak Alex \" Hey there @, Im Joseph, welcome to the Stardew Mountains, we just recently set up an expedition company to get some people exploring the amazing sights these mountains can have.  \"/pause 500/speak Haley \"  Not just sighs, but thrill and adventure. Legends say, there is incredibly rare treasure around these parts\"/pause 500/speak Alex \" Now Clarise, we can't be going around getting everyone's hopes up, but yes this place was once known for having many treasure hunters taking a shot at bringing home some cool stuff.\"/pause 500/speak Alex \" It's why they ended up having to close down the mountains to visitors, it got too dangerous with all those people. So that's what we're here for, to make climbing the mountain a safe experience.\"/pause 300/speak Haley \" So, while you're here let me give you the rundown of what you'll be doing here, we split up the mountains into different parts based on how high you are and how difficult it is to climb.\"/pause 300/ speak Haley \" The higher up you are the less oxygen there will be and harder monsters there will be, so keep that in mind as you climb. When you reach a new section though, there will be an elevator that can take you back down here to the base camp if you don't think you can continue\"/pause 300/ speak Alex \" Yep that about sums it up, good luck out there @ \"/pause 1000/globalFade/viewport -999 -999/end"
+      }
     }
   ]
 }
