@@ -162,26 +162,16 @@
       }
     },
     {
-      "Action": "EditData",
-      "Target": "Data/Furniture",
-      "Entries": {
-        "{{ModId}}_magic_rock": "{{ModId}}_magic_rock/decor/1 1/1 1/1/1000/-1/magic rock/0/Mods\\\\{{ModId}}\\\\magic_rock_texture"
-      }
-    },
-    {
-      "Action": "EditData",
-      "Target": "Data/FurnitureExtensionData",
-      "Entries": {
-        "Mods\\{{ModId}}\\magic_rock_texture": {
-          "AnimationFrames":,
-          "AnimationFrameTime": 200
-        }
-      }
-    },
-    {
       "Action": "Load",
       "Target": "Mods/{{ModId}}/magic_rock_texture",
       "FromFile": "assets/magic_rock.png"
+    },
+    {
+      "Action": "EditData",
+      "Target": "Data/Furniture",
+      "Entries": {
+        "{{ModId}}_magic_rock": "{{ModId}}_magic_rock/decor/1 1/1 1/1/1000/2/magic rock/0/Mods\\{{ModId}}\\magic_rock_texture"
+      }
     },
     {
       "Action": "Load",
