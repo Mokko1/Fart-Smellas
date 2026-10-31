@@ -109,6 +109,16 @@ namespace SmartFellasMod
 
         }
 
+        public void OnMenuChanged(object sender, MenuChangedEventArgs e)
+        {
+            if (e.NewMenu is StardewValley.Menus.DialogueBox dialogueBox &&
+                dialogueBox.characterDialogue is Dialogue dialogue &&
+                dialogue.speaker?.Name == "Abigail")
+            {
+                this.Monitor.Log($"AWDAWDWADAWD", LogLevel.Info);
+            }
+        }
+
         public Texture2D customTexture;
 
 

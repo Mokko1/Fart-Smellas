@@ -48,6 +48,7 @@ namespace SmartFellasMod
             helper.Events.GameLoop.DayStarted += rockHandler.OnDayStarted;
             helper.Events.GameLoop.UpdateTicked += rockHandler.OnUpdateTicked; 
             helper.Events.Player.Warped += eventHandler.OnPlayerWarped;
+            helper.Events.Display.MenuChanged += oxygenManager.OnMenuChanged;
 
             helper.Events.Display.RenderedHud += oxygenManager.RenderOxygenHud;
 
