@@ -4,7 +4,7 @@
   <property name="LocationContext" value="SmartFellas.AscensionCode.Content_AlwaysSnow"/>
   <property name="Outdoors" type="bool" value="true"/>
   <property name="OxygenDeprivation" type="float" value="1.1"/>
-  <property name="Warp" value=""/>
+  <property name="Warp" value="39 31 SmartFellas.AscensionCode.Content_Mountain_1 39 1 38 31 SmartFellas.AscensionCode.Content_Mountain_1 39 1 40 31 SmartFellas.AscensionCode.Content_Mountain_1 39 1 6 0 SmartFellas.AscensionCode.Content_Mountain_Peak 21 30 7 0 SmartFellas.AscensionCode.Content_Mountain_Peak 21 30"/>
  </properties>
  <tileset firstgid="1" source="spring_outdoorsTileSheet.tsx"/>
  <tileset firstgid="1976" source="winter_outdoorsTileSheet.tsx"/>

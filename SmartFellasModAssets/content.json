@@ -36,18 +36,23 @@
     },
     {
       "Action": "Load",
-      "Target": "Maps/{{ModId}}_Mountain_2",
-      "FromFile": "Maps/mountain_2.tmx"
-    },
-    {
-      "Action": "Load",
       "Target": "Maps/{{ModId}}_baseCamp",
       "FromFile": "Maps/baseCamp.tmx"
     },
     {
       "Action": "Load",
-      "Target": "Maps/{{ModId}}_mountainLevel",
-      "FromFile": "Maps/mountainLevel.tmx"
+      "Target": "Maps/{{ModId}}_Mountain_1",
+      "FromFile": "Maps/mountain_1.tmx"
+    },
+    {
+      "Action": "Load",
+      "Target": "Maps/{{ModId}}_Mountain_2",
+      "FromFile": "Maps/mountain_2.tmx"
+    },
+    {
+      "Action": "Load",
+      "Target": "Maps/{{ModId}}_Mountain_Peak",
+      "FromFile": "Maps/mountain_peak.tmx"
     },
     {
       "Action": "EditMap",
@@ -154,9 +159,14 @@
             "MapPath": "Maps/{{ModId}}_baseCamp"
           }
         },
-        "{{ModId}}_MountainLevel": {
+        "{{ModId}}_Mountain_Peak": {
           "CreateOnLoad": {
-            "MapPath": "Maps/{{ModId}}_mountainLevel"
+            "MapPath": "Maps/{{ModId}}_Mountain_Peak"
+          }
+        },
+        "{{ModId}}_Mountain_1": {
+          "CreateOnLoad": {
+            "MapPath": "Maps/{{ModId}}_mountain_1"
           }
         }
       }
