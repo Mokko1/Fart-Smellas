@@ -15,6 +15,7 @@ namespace SmartFellasMod
         private RockHandler rockHandler;
         private QuestHandler questHandler;
         private EventHandler eventHandler;
+        private DialogueHandler dialogueHandler;
         /*********
         ** Public methods
         *********/
@@ -28,6 +29,7 @@ namespace SmartFellasMod
             rockHandler = new RockHandler(this.Monitor);
             questHandler = new QuestHandler(this.Monitor);
             eventHandler = new EventHandler(this.Monitor);
+            dialogueHandler = new DialogueHandler(this.Monitor);
 
             // Path to the assets mod
             string packPath = Path.Combine(
@@ -48,6 +50,7 @@ namespace SmartFellasMod
             helper.Events.Player.Warped += eventHandler.OnPlayerWarped;
 
             helper.Events.Display.RenderedHud += oxygenManager.RenderOxygenHud;
+            helper.Events.Input.ButtonPressed += dialogueHandler.OnButtonPressed;
 
             // Create the console command
             helper.ConsoleCommands.Add(
