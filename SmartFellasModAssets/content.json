@@ -25,6 +25,10 @@
       "FromFile": "npcs/guidenpc/guidenpc.json"
     },
     {
+      "Action": "Include",
+      "FromFile": "npcs/guidenpc2/guidenpc.json"
+    },
+    {
       "Action": "Load",
       "Target": "Maps/Backwoods",
       "FromFile": "Maps/Backwoods.tmx"
