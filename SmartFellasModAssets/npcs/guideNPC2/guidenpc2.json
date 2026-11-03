@@ -25,7 +25,7 @@
       "Target": "Data/Characters",
       "Entries": {
         "{{ModId}}_GuideNPC2": {
-          "DisplayName": "GuideNPC2",
+          "DisplayName": "Clarise",
           "BirthSeason": "Winter",
           "BirthDay": 20,
           "HomeRegion": "Other",
