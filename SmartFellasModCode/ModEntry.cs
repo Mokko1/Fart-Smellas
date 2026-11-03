@@ -15,6 +15,7 @@ namespace SmartFellasMod
         private RockHandler rockHandler;
         private QuestHandler questHandler;
         private EventHandler eventHandler;
+        private DialogueHandler dialogueHandler;
         /*********
         ** Public methods
         *********/
@@ -27,6 +28,7 @@ namespace SmartFellasMod
             playerWarpHandler = new PlayerWarpHandler(this.Monitor);
             rockHandler = new RockHandler(this.Monitor);
             eventHandler = new EventHandler(this.Monitor);
+            dialogueHandler = new DialogueHandler(this.Monitor);
             questHandler = new QuestHandler(this.Monitor);
 
 
@@ -37,7 +39,7 @@ namespace SmartFellasMod
             "SmartFellasModAssets"
             );
             IContentPack pack = helper.ContentPacks.CreateFake(packPath);
-            oxygenManager.customTexture = pack.ModContent.Load<Texture2D>("assets/circle.png");
+            oxygenManager.customTexture = pack.ModContent.Load<Texture2D>("assets/oxygenBar.png");
 
             // subscribe into the game loop updates
             helper.Events.GameLoop.UpdateTicked += oxygenManager.OnUpdateTicked;
@@ -50,6 +52,7 @@ namespace SmartFellasMod
             helper.Events.Player.Warped += eventHandler.OnPlayerWarped;
 
             helper.Events.Display.RenderedHud += oxygenManager.RenderOxygenHud;
+            helper.Events.Input.ButtonPressed += dialogueHandler.OnButtonPressed;
 
             // Create the console command
             helper.ConsoleCommands.Add(
