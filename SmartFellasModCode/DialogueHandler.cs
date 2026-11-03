@@ -16,8 +16,12 @@ using StardewValley.Quests;
 
 namespace SmartFellasMod
 {
+
     internal sealed class DialogueHandler
     {
+        // Boolean to track if the player is currently in a dialogue
+        // Note this should be changed to an int-based id system if/when multiple dialogues get created like this
+        private bool inDialogue = false;
         private readonly IMonitor Monitor;
 
         public DialogueHandler(IMonitor monitor)
@@ -28,7 +32,7 @@ namespace SmartFellasMod
         // Check the guide's dialogue
         public void OnButtonPressed(object sender, ButtonPressedEventArgs e)
         {
-            if (!Context.IsWorldReady || !e.Button.IsActionButton())
+            if (!Context.IsWorldReady || !e.Button.IsActionButton() || inDialogue)
                 return;
 
             // Don't interfere with existing menus or events.
@@ -58,10 +62,7 @@ namespace SmartFellasMod
             Quest? questFound = null;
             foreach (Quest quest in Game1.player.questLog)
                 if (quest.id.ToString() == questId)
-                {
-                    quest.questComplete();
                     questFound = quest;
-                }
                 
             if (questFound == null)
                 return;
@@ -69,19 +70,27 @@ namespace SmartFellasMod
             npc.CurrentDialogue.Clear();
 
             // Dialogue the NPC should say when the quest for the oxygen mask is active
-            npc.CurrentDialogue.Push(new(npc, null, "Hey, @, how's the trip up been so far?"));
-            npc.CurrentDialogue.Push(new(npc, null, "While you were up there, I was able to find the blueprint I used when making my first oxygen mask!"));
             npc.CurrentDialogue.Push(new(npc, null, "It's not much, but I figure you can probably get more use out of it than me now, so why don't you take it?"));
-            Game1.drawDialogue(npc);
+            npc.CurrentDialogue.Peek().onFinish += () =>
+            {
+                // Complete the active quest and send the recipe
+                questFound.questComplete();
+                inDialogue = false;
 
-            // Complete the active quest and send the recipe
-            questFound.questComplete();
-
-            // Only give the mask if the player doesn't have it to remove playtesting errors
+                // Only give the mask if the player doesn't have it to remove playtesting errors
                 Game1.playSound("newRecipe");
-            if (!Game1.player.craftingRecipes.ContainsKey("SmartFellas.AscensionCode.Content_Basic_Oxygen_Mask")) {
-                Game1.player.craftingRecipes.Add("SmartFellas.AscensionCode.Content_Basic_Oxygen_Mask", 0);
-            }
+                if (!Game1.player.craftingRecipes.ContainsKey("SmartFellas.AscensionCode.Content_Basic_Oxygen_Mask"))
+                {
+                    Game1.player.craftingRecipes.Add("SmartFellas.AscensionCode.Content_Basic_Oxygen_Mask", 0);
+                }
+
+                // Give the player a quest for crafting the mask
+                Game1.player.addQuest("OxygenMaskCraft");
+            };
+            npc.CurrentDialogue.Push(new(npc, null, "While you were up there, I was able to find the blueprint I used when making my first oxygen mask!"));
+            npc.CurrentDialogue.Push(new(npc, null, "Hey, @, how's the trip up been so far?"));
+            inDialogue = true;
+            Game1.drawDialogue(npc);
         }
     }
 }

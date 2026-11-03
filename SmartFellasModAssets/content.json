@@ -18,9 +18,10 @@
       "Target": "Data/Quests",
       "Entries": {
         "StartingQuest": "Location/Ascension/You've been sent a letter about a mountain expedition in the mountains northwest of your farm. Who knows what you could find!/Meet the expedition at the mountain northwest of your farm./SmartFellas.AscensionCode.Content_BaseCamp/Stage1Quest/0/-1/false",
-        "Stage1Quest": "Location/Ascension/You've been told about the dangers that await on the mountain, but there's also treasure to seek at the top!/Pass the first level of the mountain./SmartFellas.AscensionCode.Content_MountainLevel/Stage1Return/0/-1/false",
+        "Stage1Quest": "Location/Ascension/You've been told about the dangers that await on the mountain, but there's also treasure to seek at the top!/Pass the first level of the mountain./SmartFellas.AscensionCode.Content_Mountain_2/Stage1Return/0/-1/false",
         "Stage1Return": "Basic/Ascension/After having climbed up a level on the mountain, you've noticed the air getting thinner, it might be wise to return to the guide to seek some sort of protection./Return to the Guide./-1/Stage2Quest/0/-1/false",
-        "Stage2Quest": "Location/Ascension/Once more, with feeling!/Pass the second level of the mountain./Backwoods/-1/500/-1/false"
+        "Stage2Quest": "Location/Ascension/Once more, with feeling!/Pass the second level of the mountain./SmartFellas.AscensionCode.Content_Mountain_Peak/-1/500/-1/false",
+        "OxygenMaskCraft": "Crafting/Basic Oxygen Mask/Now that you've been given the recipe for a basic oxygen mask, it might be a good idea to make it for your next trip to the mountain./Craft a Basic Oxygen Mask./SmartFellas.AscensionCode.Content_Basic_Oxygen_Mask/-1/0/-1/false"
       }
     },
     {
