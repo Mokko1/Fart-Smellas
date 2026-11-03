@@ -131,8 +131,8 @@ namespace SmartFellasMod
             string currentLocation = Game1.currentLocation.Name;
             if (!currentLocation.Contains("SmartFellas"))
                 return;
-            currentLocation = currentLocation.Substring(currentLocation.LastIndexOf('_') + 1);
-            string[] validLocations = {"BaseCamp", "MountainLevel"};
+            currentLocation = currentLocation.Substring(currentLocation.LastIndexOf("SmartFellas.AscensionCode.Content_") + 1);
+            string[] validLocations = {"BaseCamp", "Mountain_1", "Mountain_2", "Mountain_Peak"};
 
             if (!validLocations.Contains(currentLocation))
                 return;
