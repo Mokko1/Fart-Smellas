@@ -50,27 +50,64 @@ namespace SmartFellasMod
 
             }
 
-
-            if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_MountainLevel")
+            //Handle the spawning of monsters in new mountain maps.
+            if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_Mountain_1")
             {
-                SpawnCustomMonsters();
+                SpawnFirstMonsters();
             }
-
+            else if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_Mountain_2")
+            {
+                SpawnSecondMonsters();
+            }
+            else if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_Mountain_Peak")
+            {
+                SpawnThirdMonsters();
+            }
         }
 
         /// <summary>
-        /// Spawn custom monsters at manually chosen positions.
+        /// Spawn custom monsters in the first mountain level(past Base Camp) at manually chosen positions.
         /// </summary>
-        public void SpawnCustomMonsters()
+        public void SpawnFirstMonsters()
         {
-            //Spawn 3 Rock Golems for now.
-            //Note for positioning:
-            //Player starts off Mountain Level at X:2432 Y:1744.
-            SpawnRockGolem(1750, 1296);
-            SpawnRockGolem(2000, 1400);
-            SpawnRockGolem(2400, 1250);
-
             Monitor.Log("Player Position: " + Game1.player.Position, LogLevel.Debug);
+            //Player starts off Mountain Level at X:704 Y:1872.
+
+            SpawnRockGolem(1500, 1296);
+            SpawnRockGolem(1100, 1400);
+            SpawnRockGolem(1500, 800);
+            SpawnRockGolem(1800, 600);
+            SpawnRockGolem(2600, 580);
+        }
+
+        /// <summary>
+        /// Spawn custom monsters in the second mountain level.
+        /// </summary>
+        public void SpawnSecondMonsters()
+        {
+            Monitor.Log("Player Position: " + Game1.player.Position, LogLevel.Debug);
+            //Player starts off Mountain 2 map at X:2496 Y:1936
+
+            SpawnRockGolem(2400, 1600);
+            SpawnRockGolem(2000, 1700);
+            SpawnRockGolem(2100, 650);
+            SpawnRockGolem(1600, 1200);
+            SpawnRockGolem(1300, 650);
+            SpawnRockGolem(600, 800);
+            SpawnRockGolem(600, 250);
+        }
+
+        /// <summary>
+        /// Same drill as above but for the third mountain map.
+        /// </summary>
+        public void SpawnThirdMonsters()
+        {
+            Monitor.Log("Player Position: " + Game1.player.Position, LogLevel.Debug);
+            //Player starts off Mountain 2 map at X:1344 Y:1936
+
+            SpawnRockGolem(1350, 1650);
+            SpawnRockGolem(850, 1800);
+            SpawnRockGolem(2000, 1750);
         }
 
         /// <summary>
