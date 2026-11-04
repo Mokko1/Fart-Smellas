@@ -15,6 +15,7 @@ namespace SmartFellasMod
         private RockHandler rockHandler;
         private QuestHandler questHandler;
         private EventHandler eventHandler;
+        private DialogueHandler dialogueHandler;
         /*********
         ** Public methods
         *********/
@@ -26,8 +27,10 @@ namespace SmartFellasMod
             warpCommands = new WarpCommands(this.Monitor);
             playerWarpHandler = new PlayerWarpHandler(this.Monitor);
             rockHandler = new RockHandler(this.Monitor);
-            questHandler = new QuestHandler(this.Monitor);
             eventHandler = new EventHandler(this.Monitor);
+            dialogueHandler = new DialogueHandler(this.Monitor);
+            questHandler = new QuestHandler(this.Monitor);
+
 
             // Path to the assets mod
             string packPath = Path.Combine(
@@ -36,18 +39,20 @@ namespace SmartFellasMod
             "SmartFellasModAssets"
             );
             IContentPack pack = helper.ContentPacks.CreateFake(packPath);
-            oxygenManager.customTexture = pack.ModContent.Load<Texture2D>("assets/circle.png");
+            oxygenManager.customTexture = pack.ModContent.Load<Texture2D>("assets/oxygenBar.png");
 
             // subscribe into the game loop updates
             helper.Events.GameLoop.UpdateTicked += oxygenManager.OnUpdateTicked;
-            helper.Events.GameLoop.DayStarted += rockHandler.OnDayStarted;
             helper.Events.GameLoop.SaveLoaded += oxygenManager.OnSaveLoaded;
             helper.Events.Player.Warped += questHandler.Warped;
             helper.Events.Player.Warped += playerWarpHandler.OnPlayerWarped;
             helper.Events.Player.Warped += rockHandler.OnPlayerWarped;
+            helper.Events.GameLoop.DayStarted += rockHandler.OnDayStarted;
+            helper.Events.GameLoop.UpdateTicked += rockHandler.OnUpdateTicked; 
             helper.Events.Player.Warped += eventHandler.OnPlayerWarped;
 
             helper.Events.Display.RenderedHud += oxygenManager.RenderOxygenHud;
+            helper.Events.Input.ButtonPressed += dialogueHandler.OnButtonPressed;
 
             // Create the console command
             helper.ConsoleCommands.Add(
