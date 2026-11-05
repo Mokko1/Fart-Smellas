@@ -106,7 +106,7 @@ namespace SmartFellasMod
 
         private static void SetAdjustedDeprivationLevel()
         {
-            adjustedOxygenDeprivation = Math.Clamp(oxygenDeprivation - oxygenProtectionLevel, 0, 1);
+            adjustedOxygenDeprivation = Math.Clamp(oxygenDeprivation - oxygenProtectionLevel, 0, 999);
 
         }
 
@@ -140,6 +140,7 @@ namespace SmartFellasMod
 
             int screenHeight = Game1.graphics.GraphicsDevice.Viewport.Height;
             int screenWidth = Game1.graphics.GraphicsDevice.Viewport.Width;
+
             // Offset to move this element elsewhere
             Vector2 posOffset = new(screenWidth - 56, screenHeight - (56 * 4 + 10) * 2);
 

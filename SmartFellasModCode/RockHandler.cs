@@ -13,7 +13,7 @@ namespace SmartFellasMod
         // used to ensure spawning and moving works correctly
         private const string RockItemId = "SmartFellas.AscensionCode.Content_magic_rock";
         private const string RockQualifiedId = "(F)" + RockItemId;
-        private const string RockLocationName = "SmartFellas.AscensionCode.Content_MountainLevel";
+        private const string RockLocationName = "SmartFellas.AscensionCode.Content_Mountain_Peak";
         private const string SpawnedFlag = "SmartFellas.AscensionCode/RockSpawned";
         
         private readonly IMonitor Monitor;
@@ -63,7 +63,7 @@ namespace SmartFellasMod
             if (e.NewLocation.modData.ContainsKey(SpawnedFlag)) return;
 
             Furniture magicRock = ItemRegistry.Create<Furniture>(RockQualifiedId);
-            magicRock.SetPlacement(5, 5);
+            magicRock.SetPlacement(25, 11);
             e.NewLocation.furniture.Add(magicRock);
             e.NewLocation.modData[SpawnedFlag] = "true";
             this.Monitor.Log("Spawned magic rock.", LogLevel.Debug);
