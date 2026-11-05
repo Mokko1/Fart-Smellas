@@ -50,26 +50,78 @@ namespace SmartFellasMod
 
             }
 
-
-            if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_BaseCamp")
+            //Handle the spawning of monsters in new mountain maps.
+            if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_Mountain_1")
             {
-                SpawnCustomMonsters();
+                SpawnFirstMonsters();
             }
-
+            else if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_Mountain_2")
+            {
+                SpawnSecondMonsters();
+            }
+            else if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_Mountain_Peak")
+            {
+                SpawnThirdMonsters();
+            }
         }
 
-
-        public void SpawnCustomMonsters()
+        /// <summary>
+        /// Spawn custom monsters in the first mountain level(past Base Camp) at manually chosen positions.
+        /// </summary>
+        public void SpawnFirstMonsters()
         {
-            //First, create a new custom monster.
-            //We will use a stone golem for starters.
-            Monster testMonster = new RockGolem(new Vector2(15, 6));
+            Monitor.Log("Player Position: " + Game1.player.Position, LogLevel.Debug);
+            //Player starts off Mountain Level at X:704 Y:1872.
 
-            //Verification that the monster exists.
-            this.Monitor.Log($"{testMonster.Name}", LogLevel.Debug);
+            SpawnRockGolem(1500, 1296);
+            SpawnRockGolem(1100, 1400);
+            SpawnRockGolem(1500, 800);
+            SpawnRockGolem(1800, 600);
+            SpawnRockGolem(2600, 580);
+        }
 
-            //Then, we need to add this monster to the map itself.
-            Game1.currentLocation.addCharacter(testMonster);
+        /// <summary>
+        /// Spawn custom monsters in the second mountain level.
+        /// </summary>
+        public void SpawnSecondMonsters()
+        {
+            Monitor.Log("Player Position: " + Game1.player.Position, LogLevel.Debug);
+            //Player starts off Mountain 2 map at X:2496 Y:1936
+
+            SpawnRockGolem(2400, 1600);
+            SpawnRockGolem(2000, 1700);
+            SpawnRockGolem(2100, 650);
+            SpawnRockGolem(1600, 1200);
+            SpawnRockGolem(1300, 650);
+            SpawnRockGolem(600, 800);
+            SpawnRockGolem(600, 250);
+        }
+
+        /// <summary>
+        /// Same drill as above but for the third mountain map.
+        /// </summary>
+        public void SpawnThirdMonsters()
+        {
+            Monitor.Log("Player Position: " + Game1.player.Position, LogLevel.Debug);
+            //Player starts off Mountain 2 map at X:1344 Y:1936
+
+            SpawnRockGolem(1350, 1650);
+            SpawnRockGolem(850, 1800);
+            SpawnRockGolem(2000, 1750);
+        }
+
+        /// <summary>
+        /// Spawn in a Rock Golem at a set location.
+        /// </summary>
+        /// <param name="xPos">The X position where the golem spawns.</param>
+        /// <param name="yPos">The starting Y position of the golem.</param>
+        private void SpawnRockGolem(int xPos, int yPos)
+        {
+            //Spawn a rock golem at a determined location.
+            Monster mon = new RockGolem(new Vector2(xPos, yPos));
+
+            //Add the golem to the game scene.
+            Game1.currentLocation.addCharacter(mon);
         }
     }
 }
