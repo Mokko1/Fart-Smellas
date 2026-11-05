@@ -106,7 +106,7 @@ namespace SmartFellasMod
 
         private static void SetAdjustedDeprivationLevel()
         {
-            adjustedOxygenDeprivation = Math.Clamp(oxygenDeprivation - oxygenProtectionLevel, 0, 999);
+            adjustedOxygenDeprivation = Math.Clamp(oxygenDeprivation - oxygenProtectionLevel, 0, 1);
 
         }
 
