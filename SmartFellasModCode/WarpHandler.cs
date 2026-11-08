@@ -14,6 +14,12 @@ namespace SmartFellasMod
     {
         private readonly IMonitor Monitor;
 
+        //These booleans track if the enemies of a particular zone have been spawned in.
+        private bool firstWave = false;
+        private bool secondWave = false;
+        private bool thirdWave = false;
+
+
         public PlayerWarpHandler(IMonitor monitor)
         {
             this.Monitor = monitor;
@@ -51,15 +57,15 @@ namespace SmartFellasMod
             }
 
             //Handle the spawning of monsters in new mountain maps.
-            if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_Mountain_1")
+            if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_Mountain_1" && !firstWave)
             {
                 SpawnFirstMonsters();
             }
-            else if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_Mountain_2")
+            else if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_Mountain_2" && !secondWave)
             {
                 SpawnSecondMonsters();
             }
-            else if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_Mountain_Peak")
+            else if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_Mountain_Peak" && !thirdWave)
             {
                 SpawnThirdMonsters();
             }
@@ -78,6 +84,9 @@ namespace SmartFellasMod
             SpawnRockGolem(1500, 800);
             SpawnRockGolem(1800, 600);
             SpawnRockGolem(2600, 580);
+
+            //Ensure we have registered the wave of enemies are spawned in and prevent respawns.
+            firstWave = true;
         }
 
         /// <summary>
@@ -95,6 +104,9 @@ namespace SmartFellasMod
             SpawnRockGolem(1300, 650);
             SpawnRockGolem(600, 800);
             SpawnRockGolem(600, 250);
+
+            //Ensure we have registered the wave of enemies are spawned in and prevent respawns.
+            secondWave = true;
         }
 
         /// <summary>
@@ -108,6 +120,9 @@ namespace SmartFellasMod
             SpawnRockGolem(1350, 1650);
             SpawnRockGolem(850, 1800);
             SpawnRockGolem(2000, 1750);
+
+            //Ensure we have registered the wave of enemies are spawned in and prevent respawns.
+            thirdWave = true;
         }
 
         /// <summary>
