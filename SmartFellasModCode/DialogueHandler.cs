@@ -19,9 +19,6 @@ namespace SmartFellasMod
 
     internal sealed class DialogueHandler
     {
-        // Boolean to track if the player is currently in a dialogue
-        // Note this should be changed to an int-based id system if/when multiple dialogues get created like this
-        private bool inDialogue = false;
         private readonly IMonitor Monitor;
 
         public DialogueHandler(IMonitor monitor)
@@ -59,7 +56,7 @@ namespace SmartFellasMod
         // Check the guide's dialogue
         public void OnButtonPressed(object sender, ButtonPressedEventArgs e)
         {
-            if (!Context.IsWorldReady || !e.Button.IsActionButton() || inDialogue)
+            if (!Context.IsWorldReady || !e.Button.IsActionButton())
                 return;
 
             // Don't interfere with existing menus or events.
@@ -88,7 +85,6 @@ namespace SmartFellasMod
                 return;
 
             npc.CurrentDialogue.Clear();
-            inDialogue = true;
 
             // All lines for the guideNPC
             string[] lines =
@@ -118,7 +114,6 @@ namespace SmartFellasMod
                     {
                         // Complete the active quest and send the recipe
                         questFound.questComplete();
-                        inDialogue = false;
 
                         // Only give the mask if the player doesn't have it to remove playtesting errors
                         Game1.playSound("newRecipe");

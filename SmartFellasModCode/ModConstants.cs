@@ -1,4 +1,6 @@
-﻿namespace SmartFellasMod
+﻿using StardewValley;
+
+namespace SmartFellasMod
 {
     /// <summary>
     /// Holds globals multiple scripts may need to use
@@ -7,5 +9,6 @@
     {
         // code used to retrieve stuff from the content pack
         public const string ContentPackId = "SmartFellas.AscensionCode.Content";
+        public static String[] locationNames = { "Buffer", "BaseCamp", "Mountain_1", "Mountain_2", "Mountain_Peak" };
     }
 }

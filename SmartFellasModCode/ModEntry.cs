@@ -13,9 +13,10 @@ namespace SmartFellasMod
         private WarpCommands warpCommands;
         private PlayerWarpHandler playerWarpHandler;
         private RockHandler rockHandler;
-        private QuestHandler questHandler;
+        private BlockingHandler blockingHandler;
         private EventHandler eventHandler;
-        private DialogueHandler dialogueHandler;
+        private DialogueHandler dialogueHandler;        
+
         /*********
         ** Public methods
         *********/
@@ -29,7 +30,7 @@ namespace SmartFellasMod
             rockHandler = new RockHandler(this.Monitor);
             eventHandler = new EventHandler(this.Monitor);
             dialogueHandler = new DialogueHandler(this.Monitor);
-            questHandler = new QuestHandler(this.Monitor);
+            blockingHandler = new BlockingHandler(this.Monitor);
 
 
             // Path to the assets mod
@@ -44,10 +45,11 @@ namespace SmartFellasMod
             // subscribe into the game loop updates
             helper.Events.GameLoop.UpdateTicked += oxygenManager.OnUpdateTicked;
             helper.Events.GameLoop.SaveLoaded += oxygenManager.OnSaveLoaded;
-            helper.Events.Player.Warped += questHandler.Warped;
+            helper.Events.Player.Warped += blockingHandler.OnPlayerWarped;
             helper.Events.Player.Warped += playerWarpHandler.OnPlayerWarped;
             helper.Events.Player.Warped += rockHandler.OnPlayerWarped;
             helper.Events.GameLoop.DayStarted += rockHandler.OnDayStarted;
+            helper.Events.GameLoop.DayStarted += playerWarpHandler.OnDayStarted;
             helper.Events.GameLoop.UpdateTicked += rockHandler.OnUpdateTicked; 
             helper.Events.Player.Warped += eventHandler.OnPlayerWarped;
 
