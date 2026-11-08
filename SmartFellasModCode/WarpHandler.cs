@@ -132,11 +132,15 @@ namespace SmartFellasMod
         /// <param name="yPos">The starting Y position of the golem.</param>
         private void SpawnRockGolem(int xPos, int yPos)
         {
-            //Spawn a rock golem at a determined location.
-            Monster mon = new RockGolem(new Vector2(xPos, yPos));
+            ////Spawn a rock golem at a determined location.
+            //Monster mon = new RockGolem(new Vector2(xPos, yPos));
 
-            //Add the golem to the game scene.
-            Game1.currentLocation.addCharacter(mon);
+            ////Add the golem to the game scene.
+            //Game1.currentLocation.addCharacter(mon);
+
+            Monster newMon = new Skeleton(new Vector2(xPos, yPos));
+
+            Game1.currentLocation.addCharacter(newMon);
         }
     }
 }
