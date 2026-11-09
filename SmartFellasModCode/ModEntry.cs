@@ -41,18 +41,21 @@ namespace SmartFellasMod
             );
             IContentPack pack = helper.ContentPacks.CreateFake(packPath);
             oxygenManager.customTexture = pack.ModContent.Load<Texture2D>("assets/oxygenBar.png");
+            blockingHandler.skullHUDTexture = pack.ModContent.Load<Texture2D>("assets/skull.png");
+            blockingHandler.skullbackgroundHUDTexture = pack.ModContent.Load<Texture2D>("assets/skullbackground.png");
 
             // subscribe into the game loop updates
             helper.Events.GameLoop.UpdateTicked += oxygenManager.OnUpdateTicked;
             helper.Events.GameLoop.SaveLoaded += oxygenManager.OnSaveLoaded;
-            helper.Events.Player.Warped += blockingHandler.OnPlayerWarped;
             helper.Events.Player.Warped += playerWarpHandler.OnPlayerWarped;
             helper.Events.Player.Warped += rockHandler.OnPlayerWarped;
             helper.Events.GameLoop.DayStarted += rockHandler.OnDayStarted;
             helper.Events.GameLoop.DayStarted += playerWarpHandler.OnDayStarted;
             helper.Events.GameLoop.UpdateTicked += rockHandler.OnUpdateTicked; 
+            helper.Events.GameLoop.UpdateTicked += blockingHandler.OnUpdateTicked;
             helper.Events.Player.Warped += eventHandler.OnPlayerWarped;
 
+            helper.Events.Display.RenderedHud += blockingHandler.RenderEnemyLeftHud;
             helper.Events.Display.RenderedHud += oxygenManager.RenderOxygenHud;
             helper.Events.Input.ButtonPressed += dialogueHandler.OnButtonPressed;
 

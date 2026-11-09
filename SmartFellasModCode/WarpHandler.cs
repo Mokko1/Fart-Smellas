@@ -44,6 +44,7 @@ namespace SmartFellasMod
         /// <param name="warpedEvent">The event that stores the arguments for the player being warped</param>
         public void OnPlayerWarped(object? sender, WarpedEventArgs warpedEvent)
         {
+            ModConstants.EnemyMapLoaded = EnemyLoadingState.UNLOADED;
             if (warpedEvent.NewLocation is MineShaft mine)
             {
                 // When the player reaches the tenth level in the mines, send the mail to start the quest
@@ -83,6 +84,7 @@ namespace SmartFellasMod
                 locationsSpawned["Mountain_Peak"] = true;
                 SpawnThirdMonsters();
             }
+            ModConstants.EnemyMapLoaded = EnemyLoadingState.LOADING;
         }
 
         /// <summary>
