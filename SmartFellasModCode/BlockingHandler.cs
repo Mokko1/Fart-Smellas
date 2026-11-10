@@ -103,7 +103,7 @@ namespace SmartFellasMod
             // Draw the HUD holder
             spriteBatch.Draw(
                 texture: skullbackgroundHUDTexture,
-                position: offset - new Vector2(60, 0),
+                position: offset - new Vector2(40, -1),
                 sourceRectangle: null,
                 color: Color.White,
                 rotation: 0,
@@ -116,7 +116,7 @@ namespace SmartFellasMod
             // Draw the skull
             spriteBatch.Draw(
                 texture: skullHUDTexture,
-                position: offset - new Vector2(32, -15),
+                position: offset - new Vector2(28, -10),
                 sourceRectangle: null,
                 color: Color.White,
                 rotation: 0,
@@ -130,7 +130,7 @@ namespace SmartFellasMod
             spriteBatch.DrawString(
                     spriteFont: Game1.dialogueFont,
                     text: monsterCount.ToString(),
-                    position: offset + new Vector2(8, 10),
+                    position: offset + new Vector2(4, 4),
                     color: Color.Black,
                     rotation: 0,
                     origin: Vector2.Zero,

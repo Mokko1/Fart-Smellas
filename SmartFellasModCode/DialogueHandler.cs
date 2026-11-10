@@ -32,7 +32,7 @@ namespace SmartFellasMod
         /// <param name="targetTile">The tile the cursor was over when performing action.</param>
         /// <param name="npcName">The name of the NPC to look for</param>
         /// <returns>The NPC object, if they were found</returns>
-        public NPC? NPCChecker(Vector2 targetTile, string npcName)
+        private NPC? NPCChecker(Vector2 targetTile, string npcName)
         {
             Rectangle targetArea = new Rectangle((int)targetTile.X * 64, (int)targetTile.Y * 64, 64, 64);
             // A second target area for detecting if the cursor is right above the NPCs tile since you can usually interact with them like that as well.
