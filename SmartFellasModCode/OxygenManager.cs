@@ -7,6 +7,7 @@ using System;
 using StardewValley.Objects;
 using System.ComponentModel.Design;
 using Microsoft.Xna.Framework.Input;
+using StardewValley.Tools;
 
 namespace SmartFellasMod
 {
@@ -110,12 +111,30 @@ namespace SmartFellasMod
 
         }
 
+        private bool inputRead;
+
+        /// <summary>
+        /// Read for an attack input, taking off energy for the adjustedOxygenDeprivation, maxing out at losing 5 per swing
+        /// </summary>
+        private void ReadAttackInput()
+        {
+            if (Game1.player.UsingTool && !inputRead)
+            {
+                inputRead = true;
+                if (Game1.player.CurrentTool is MeleeWeapon || Game1.player.CurrentTool is Slingshot)
+                    Game1.player.stamina -= 5 * adjustedOxygenDeprivation;
+            }
+            else if (!Game1.player.UsingTool)
+                inputRead = false;
+        }
+
         public Texture2D customTexture;
 
 
         /*********
         ** Methods
         *********/
+
 
         /// <summary>
         /// Render the hud element for the oxygen mechanic using the actual value of the field
@@ -225,6 +244,8 @@ namespace SmartFellasMod
             // ignore updates if the player hasn't loaded in yet
             if (!Context.IsWorldReady || Game1.player == null)
                 return;
+
+            ReadAttackInput();
 
             SetOxygenProtection();
 

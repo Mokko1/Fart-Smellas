@@ -4,6 +4,8 @@ using StardewModdingAPI.Events;
 using StardewValley;
 using StardewValley.Locations;
 using StardewValley.Monsters;
+using System.Collections.Generic;
+using xTile.Dimensions;
 
 namespace SmartFellasMod
 {
@@ -12,11 +14,26 @@ namespace SmartFellasMod
     /// </summary>
     internal sealed class PlayerWarpHandler
     {
+        public Dictionary<String, bool> locationsSpawned = new Dictionary<string, bool>();
+
         private readonly IMonitor Monitor;
 
         public PlayerWarpHandler(IMonitor monitor)
         {
             this.Monitor = monitor;
+        }
+
+        /// <summary>
+        /// Reset enemy spawns at the start of every day
+        /// </summary>
+        public void OnDayStarted(object? sender, DayStartedEventArgs dayStartedEvent)
+        {
+            if (locationsSpawned.Count == 0)
+                foreach (String location in ModConstants.locationNames)
+                    locationsSpawned.Add(location, false);
+            else
+                foreach (String location in ModConstants.locationNames)
+                    locationsSpawned[location] = false;
         }
 
         /// <summary>
@@ -27,6 +44,7 @@ namespace SmartFellasMod
         /// <param name="warpedEvent">The event that stores the arguments for the player being warped</param>
         public void OnPlayerWarped(object? sender, WarpedEventArgs warpedEvent)
         {
+            ModConstants.EnemyMapLoaded = EnemyLoadingState.UNLOADED;
             if (warpedEvent.NewLocation is MineShaft mine)
             {
                 // When the player reaches the tenth level in the mines, send the mail to start the quest
@@ -51,18 +69,22 @@ namespace SmartFellasMod
             }
 
             //Handle the spawning of monsters in new mountain maps.
-            if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_Mountain_1")
+            if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_Mountain_1" && !locationsSpawned["Mountain_1"])
             {
+                locationsSpawned["Mountain_1"] = true;
                 SpawnFirstMonsters();
             }
-            else if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_Mountain_2")
+            else if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_Mountain_2" && !locationsSpawned["Mountain_2"])
             {
+                locationsSpawned["Mountain_2"] = true;
                 SpawnSecondMonsters();
             }
-            else if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_Mountain_Peak")
+            else if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_Mountain_Peak" && !locationsSpawned["Mountain_Peak"])
             {
+                locationsSpawned["Mountain_Peak"] = true;
                 SpawnThirdMonsters();
             }
+            ModConstants.EnemyMapLoaded = EnemyLoadingState.LOADING;
         }
 
         /// <summary>

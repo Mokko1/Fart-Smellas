@@ -19,9 +19,6 @@ namespace SmartFellasMod
 
     internal sealed class DialogueHandler
     {
-        // Boolean to track if the player is currently in a dialogue
-        // Note this should be changed to an int-based id system if/when multiple dialogues get created like this
-        private bool inDialogue = false;
         private readonly IMonitor Monitor;
 
         public DialogueHandler(IMonitor monitor)
@@ -35,7 +32,7 @@ namespace SmartFellasMod
         /// <param name="targetTile">The tile the cursor was over when performing action.</param>
         /// <param name="npcName">The name of the NPC to look for</param>
         /// <returns>The NPC object, if they were found</returns>
-        public NPC? NPCChecker(Vector2 targetTile, string npcName)
+        private NPC? NPCChecker(Vector2 targetTile, string npcName)
         {
             Rectangle targetArea = new Rectangle((int)targetTile.X * 64, (int)targetTile.Y * 64, 64, 64);
             // A second target area for detecting if the cursor is right above the NPCs tile since you can usually interact with them like that as well.
@@ -59,7 +56,7 @@ namespace SmartFellasMod
         // Check the guide's dialogue
         public void OnButtonPressed(object sender, ButtonPressedEventArgs e)
         {
-            if (!Context.IsWorldReady || !e.Button.IsActionButton() || inDialogue)
+            if (!Context.IsWorldReady || !e.Button.IsActionButton())
                 return;
 
             // Don't interfere with existing menus or events.
@@ -88,7 +85,6 @@ namespace SmartFellasMod
                 return;
 
             npc.CurrentDialogue.Clear();
-            inDialogue = true;
 
             // All lines for the guideNPC
             string[] lines =
@@ -118,7 +114,6 @@ namespace SmartFellasMod
                     {
                         // Complete the active quest and send the recipe
                         questFound.questComplete();
-                        inDialogue = false;
 
                         // Only give the mask if the player doesn't have it to remove playtesting errors
                         Game1.playSound("newRecipe");
