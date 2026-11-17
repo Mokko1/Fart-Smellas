@@ -18,7 +18,7 @@ namespace SmartFellasMod
 
         // code used to retrieve stuff from the content pack
         public const string ContentPackId = "SmartFellas.AscensionCode.Content";
-        public static String[] locationNames = { "Buffer", "BaseCamp", "Mountain_1", "Mountain_2", "Mountain_Peak" };
+        public static String[] locationNames = { "Buffer", "BaseCamp", "Mountain_1", "Mountain_2", "Mountain_3", "Mountain_Peak" };
 
         private static EnemyLoadingState enemyMapLoaded;
         /// <summary>
