@@ -69,6 +69,37 @@ namespace SmartFellasMod
             this.Monitor.Log("Spawned magic rock.", LogLevel.Debug);
         }
 
+        public void OnInventoryChanged(object sender, StardewModdingAPI.Events.InventoryChangedEventArgs e)
+        {
+            if (!e.IsLocalPlayer)
+                return;
+
+            // Check newly added items
+            foreach (var item in e.Added)
+            {
+                // Example: check item ID or name
+                this.Monitor.Log($"Picked up item: {item.DisplayName} (ID: {item.QualifiedItemId}) x{item.Stack}", StardewModdingAPI.LogLevel.Info);
+                if (item.QualifiedItemId == "(F)SmartFellas.AscensionCode.Content_magic_rock")
+                {
+                    this.Monitor.Log($"aga", StardewModdingAPI.LogLevel.Info);
+                    Item itemToHold = Game1.player.CurrentItem;
+                    TriggerPickupAnimation(Game1.player, itemToHold);
+                }
+            }
+           
+
+            // Check quantity increases on existing stackable items
+            foreach (var change in e.QuantityChanged)
+            {
+                int diff = change.NewSize - change.OldSize;
+                if (diff > 0)
+                {
+                    this.Monitor.Log($"Increased stack for: {change.Item.DisplayName} by {diff}", StardewModdingAPI.LogLevel.Info);
+                }
+            }
+        }
+
+
         public void OnUpdateTicked(object? sender, UpdateTickedEventArgs e)
         {
             if (!Context.IsWorldReady) return;
@@ -111,6 +142,15 @@ namespace SmartFellasMod
                         dirt.fertilizer.Value = "DeluxeFertilizer";
                 }
             }
+        }
+        public void TriggerPickupAnimation(Farmer player, Item item)
+        {
+            player.completelyStopAnimatingOrDoingAction();
+            player.faceDirection(Game1.down); // Optional: force player to face forward
+            player.FarmerSprite.animateOnce(130,150f,4);
+            // This forces the temporary frame and locks player control for the duration
+
+            player.currentLocation.playSound("jingle1");
         }
     }
 }
