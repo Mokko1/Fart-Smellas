@@ -67,6 +67,34 @@ namespace SmartFellasMod
                     ModConstants.EnemyMapLoaded = EnemyLoadingState.LOADED;
                 }
             }
+            else if (Game1.currentLocation.Name == ModConstants.ContentPackId + "_Mountain_3")
+            {
+                monsterCount = Game1.currentLocation.characters.OfType<Monster>().Count();
+                if (monsterCount == 0)
+                {
+                    Vector2[] pos = { new Vector2(22, 6), new Vector2(22, 7) };
+                    if (Game1.currentLocation.hasTileAt((int)pos[0].X, (int)pos[0].Y, "Buildings"))
+                    {
+                        foreach (Vector2 tile in pos)
+                            Game1.currentLocation.removeTile((int)tile.X, (int)tile.Y, "Buildings");
+                    }
+                    ModConstants.EnemyMapLoaded = EnemyLoadingState.LOADED;
+                }
+            }
+            else if (Game1.currentLocation.Name == ModConstants.ContentPackId + "_Mountain_4")
+            {
+                monsterCount = Game1.currentLocation.characters.OfType<Monster>().Count();
+                if (monsterCount == 0)
+                {
+                    Vector2[] pos = { new Vector2(1, 17), new Vector2(2, 17), new Vector2(1, 18), new Vector2(2, 18) };
+                    if (Game1.currentLocation.hasTileAt((int)pos[0].X, (int)pos[0].Y, "Buildings"))
+                    {
+                        foreach (Vector2 tile in pos)
+                            Game1.currentLocation.removeTile((int)tile.X, (int)tile.Y, "Buildings");
+                    }
+                    ModConstants.EnemyMapLoaded = EnemyLoadingState.LOADED;
+                }
+            }
             else
                 ModConstants.EnemyMapLoaded = EnemyLoadingState.LOADED;
         }
@@ -82,7 +110,7 @@ namespace SmartFellasMod
             if (!currentLocation.Contains("SmartFellas"))
                 return;
             currentLocation = currentLocation.Substring(currentLocation.LastIndexOf("SmartFellas.AscensionCode.Content_") + 34);
-            string[] validLocations = { "Mountain_1", "Mountain_2" };
+            string[] validLocations = { "Mountain_1", "Mountain_2", "Mountain_3", "Mountain_4" };
 
             if (!validLocations.Contains(currentLocation) || monsterCount == 0)
                 return;

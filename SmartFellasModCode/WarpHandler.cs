@@ -90,6 +90,11 @@ namespace SmartFellasMod
                 locationsSpawned["Mountain_3"] = true;
                 SpawnThirdMonsters();
             }
+            else if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_Mountain_4" && !locationsSpawned["Mountain_4"])
+            {
+                locationsSpawned["Mountain_4"] = true;
+                SpawnFourthMonsters();
+            }
             ModConstants.EnemyMapLoaded = EnemyLoadingState.LOADING;
         }
 
@@ -149,6 +154,25 @@ namespace SmartFellasMod
 
             ////Ensure we have registered the wave of enemies are spawned in and prevent respawns.
             //thirdWave = true;
+        }
+
+        /// <summary>
+        /// Spawn rock golems on the fourth mountain map
+        /// </summary>
+        public void SpawnFourthMonsters()
+        {
+            Monitor.Log("Player Position: " + Game1.player.Position, LogLevel.Debug);
+            //Player starts off Mountain 4 map at X:128 Y:1984
+
+            SpawnRockGolem(650, 1500);
+            SpawnRockGolem(450, 1000);
+            SpawnRockGolem(1200, 700);
+            SpawnRockGolem(1600, 1200);
+            SpawnRockGolem(2050, 1300);
+            SpawnRockGolem(2750, 750);
+            SpawnRockGolem(2450, 300);
+            SpawnRockGolem(2450, 300);
+            SpawnRockGolem(2750, 1600);
         }
 
         /// <summary>

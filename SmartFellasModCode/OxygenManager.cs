@@ -151,7 +151,7 @@ namespace SmartFellasMod
             if (!currentLocation.Contains("SmartFellas"))
                 return;
             currentLocation = currentLocation.Substring(currentLocation.LastIndexOf("SmartFellas.AscensionCode.Content_") + 34);
-                string[] validLocations = {"BaseCamp", "Mountain_1", "Mountain_2", "Mountain_Peak"};
+                string[] validLocations = {"BaseCamp", "Mountain_1", "Mountain_2", "Mountain_3", "Mountain_4", "Mountain_Peak" };
 
             if (!validLocations.Contains(currentLocation))
                 return;
