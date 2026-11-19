@@ -31,7 +31,7 @@ namespace SmartFellasMod
         private float lastStamina;
 
         // higher the less oxygen the player has access to, used to add more energy lost 
-        // its minimum is 0 and max is 2
+        // its minimum is 0 and max is 1
         private static float oxygenDeprivation = 0;
         private static float adjustedOxygenDeprivation = 0;
         private static float oxygenProtectionLevel = 0;
@@ -44,7 +44,7 @@ namespace SmartFellasMod
             {
 
                 //ensure oxygenDeprivation is assigned correctly
-                oxygenDeprivation = Math.Clamp(value, 0f, 2f);
+                oxygenDeprivation = Math.Clamp(value, 0f, 1f);
                 SetAdjustedDeprivationLevel();
 
             }
@@ -122,7 +122,7 @@ namespace SmartFellasMod
             {
                 inputRead = true;
                 if (Game1.player.CurrentTool is MeleeWeapon || Game1.player.CurrentTool is Slingshot)
-                    Game1.player.stamina -= 5 * adjustedOxygenDeprivation;
+                    Game1.player.stamina -= 2.5f * adjustedOxygenDeprivation;
             }
             else if (!Game1.player.UsingTool)
                 inputRead = false;
@@ -196,13 +196,13 @@ namespace SmartFellasMod
                 color: Color.Aqua,
                 rotation: (float)(Math.PI),
                 origin: Vector2.Zero,
-                scale: new Vector2(24, 160 * adjustedOxygenDeprivation),
+                scale: new Vector2(24, 160 * (1.0f - adjustedOxygenDeprivation)),
                 effects: SpriteEffects.None,
                 layerDepth: 0
                 );
             spriteBatch.Draw(
                 texture: pixelTexture,
-                position: new Vector2(posOffset.X + 36, posOffset.Y + 216 - 160 * adjustedOxygenDeprivation),
+                position: new Vector2(posOffset.X + 36, posOffset.Y + 216 - 160 * (1.0f - adjustedOxygenDeprivation)),
                 sourceRectangle: null,
                 color: new Color(r: 0, g: 225, b:225),
                 rotation: (float)(Math.PI),
@@ -216,7 +216,7 @@ namespace SmartFellasMod
             if (hovering) {
                 spriteBatch.DrawString(
                     spriteFont: Game1.dialogueFont,
-                    text: ((int)(adjustedOxygenDeprivation * 100)).ToString() + "/100",
+                    text: ((int)((1.0f - adjustedOxygenDeprivation) * 100)).ToString() + "/100",
                     position: new Vector2(posOffset.X - 155, posOffset.Y + 70),
                     color: Color.White
                 );
