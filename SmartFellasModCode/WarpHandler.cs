@@ -18,6 +18,12 @@ namespace SmartFellasMod
 
         private readonly IMonitor Monitor;
 
+        ////These booleans track if the enemies of a particular zone have been spawned in.
+        //private bool firstWave = false;
+        //private bool secondWave = false;
+        //private bool thirdWave = false;
+
+
         public PlayerWarpHandler(IMonitor monitor)
         {
             this.Monitor = monitor;
@@ -79,9 +85,9 @@ namespace SmartFellasMod
                 locationsSpawned["Mountain_2"] = true;
                 SpawnSecondMonsters();
             }
-            else if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_Mountain_Peak" && !locationsSpawned["Mountain_Peak"])
+            else if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_Mountain_3" && !locationsSpawned["Mountain_3"])
             {
-                locationsSpawned["Mountain_Peak"] = true;
+                locationsSpawned["Mountain_3"] = true;
                 SpawnThirdMonsters();
             }
             ModConstants.EnemyMapLoaded = EnemyLoadingState.LOADING;
@@ -100,6 +106,9 @@ namespace SmartFellasMod
             SpawnRockGolem(1500, 800);
             SpawnRockGolem(1800, 600);
             SpawnRockGolem(2600, 580);
+
+            ////Ensure we have registered the wave of enemies are spawned in and prevent respawns.
+            //firstWave = true;
         }
 
         /// <summary>
@@ -111,12 +120,14 @@ namespace SmartFellasMod
             //Player starts off Mountain 2 map at X:2496 Y:1936
 
             SpawnRockGolem(2400, 1600);
-            SpawnRockGolem(2000, 1700);
             SpawnRockGolem(2100, 650);
             SpawnRockGolem(1600, 1200);
             SpawnRockGolem(1300, 650);
             SpawnRockGolem(600, 800);
             SpawnRockGolem(600, 250);
+
+            ////Ensure we have registered the wave of enemies are spawned in and prevent respawns.
+            //secondWave = true;
         }
 
         /// <summary>
@@ -127,9 +138,17 @@ namespace SmartFellasMod
             Monitor.Log("Player Position: " + Game1.player.Position, LogLevel.Debug);
             //Player starts off Mountain 2 map at X:1344 Y:1936
 
+            SpawnRockGolem(1150, 900);
+            SpawnRockGolem(1250, 1200);
+            SpawnRockGolem(1300, 1400);
             SpawnRockGolem(1350, 1650);
-            SpawnRockGolem(850, 1800);
-            SpawnRockGolem(2000, 1750);
+            SpawnRockGolem(1400, 550);
+            SpawnRockGolem(1600, 1450);
+            SpawnRockGolem(1900, 1000);
+            SpawnRockGolem(2200, 900);
+
+            ////Ensure we have registered the wave of enemies are spawned in and prevent respawns.
+            //thirdWave = true;
         }
 
         /// <summary>
@@ -139,11 +158,15 @@ namespace SmartFellasMod
         /// <param name="yPos">The starting Y position of the golem.</param>
         private void SpawnRockGolem(int xPos, int yPos)
         {
-            //Spawn a rock golem at a determined location.
-            Monster mon = new RockGolem(new Vector2(xPos, yPos));
+            ////Spawn a rock golem at a determined location.
+            //Monster mon = new RockGolem(new Vector2(xPos, yPos));
 
-            //Add the golem to the game scene.
-            Game1.currentLocation.addCharacter(mon);
+            ////Add the golem to the game scene.
+            //Game1.currentLocation.addCharacter(mon);
+
+            Monster newMon = new Skeleton(new Vector2(xPos, yPos));
+
+            Game1.currentLocation.addCharacter(newMon);
         }
     }
 }
