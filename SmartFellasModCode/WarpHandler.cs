@@ -78,21 +78,25 @@ namespace SmartFellasMod
             if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_Mountain_1" && !locationsSpawned["Mountain_1"])
             {
                 locationsSpawned["Mountain_1"] = true;
+                KillCurrentMonsters(warpedEvent.NewLocation);
                 SpawnFirstMonsters();
             }
             else if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_Mountain_2" && !locationsSpawned["Mountain_2"])
             {
                 locationsSpawned["Mountain_2"] = true;
+                KillCurrentMonsters(warpedEvent.NewLocation);
                 SpawnSecondMonsters();
             }
             else if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_Mountain_3" && !locationsSpawned["Mountain_3"])
             {
                 locationsSpawned["Mountain_3"] = true;
+                KillCurrentMonsters(warpedEvent.NewLocation);
                 SpawnThirdMonsters();
             }
             else if (warpedEvent.NewLocation.Name == $"{ModConstants.ContentPackId}_Mountain_4" && !locationsSpawned["Mountain_4"])
             {
                 locationsSpawned["Mountain_4"] = true;
+                KillCurrentMonsters(warpedEvent.NewLocation);
                 SpawnFourthMonsters();
             }
             ModConstants.EnemyMapLoaded = EnemyLoadingState.LOADING;
@@ -171,8 +175,18 @@ namespace SmartFellasMod
             SpawnRockGolem(2050, 1300);
             SpawnRockGolem(2750, 750);
             SpawnRockGolem(2450, 300);
-            SpawnRockGolem(2450, 300);
             SpawnRockGolem(2750, 1600);
+        }
+
+        /// <summary>
+        /// Kill all monsters in the current area.
+        /// </summary>
+        private void KillCurrentMonsters(GameLocation location)
+        {
+            foreach (var monster in location.characters.OfType<Monster>().ToList())
+            {
+                location.characters.Remove(monster);
+            }
         }
 
         /// <summary>
