@@ -41,34 +41,32 @@ namespace SmartFellasMod
             if (ModConstants.EnemyMapLoaded != EnemyLoadingState.LOADING)
                 return;
 
-                if (Game1.currentLocation.Name == ModConstants.ContentPackId + "_Mountain_1")
-            {
-                monsterCount = Game1.currentLocation.characters.OfType<Monster>().Count();
-                if (monsterCount == 0)
-                {
-                    Vector2[] pos = { new Vector2(38, 4), new Vector2(39, 4), new Vector2(38, 5), new Vector2(39, 5) };
-                    if (Game1.currentLocation.hasTileAt((int)pos[0].X, (int)pos[0].Y, "Buildings")) {
-                        foreach (Vector2 tile in pos)
-                            Game1.currentLocation.removeTile((int)tile.X, (int)tile.Y, "Buildings");
-                    }
-                    ModConstants.EnemyMapLoaded = EnemyLoadingState.LOADED;
-                }
-            }
+            if (Game1.currentLocation.Name == ModConstants.ContentPackId + "_Mountain_1")
+                CheckMap(new Vector2[] { new(38, 4), new(39, 4), new(38, 5), new(39, 5) });
             else if (Game1.currentLocation.Name == ModConstants.ContentPackId + "_Mountain_2")
-            {
-                monsterCount = Game1.currentLocation.characters.OfType<Monster>().Count();
-                if (monsterCount == 0)
-                {
-                    Vector2[] pos = { new Vector2(8, 2), new Vector2(9, 2), new Vector2(8, 3), new Vector2(9, 3) };
-                    if (Game1.currentLocation.hasTileAt((int)pos[0].X, (int)pos[0].Y, "Buildings")) {
-                        foreach (Vector2 tile in pos)
-                            Game1.currentLocation.removeTile((int)tile.X, (int)tile.Y, "Buildings");
-                    }
-                    ModConstants.EnemyMapLoaded = EnemyLoadingState.LOADED;
-                }
-            }
+                CheckMap(new Vector2[] { new(8, 2), new(9, 2), new(8, 3), new(9, 3) });
+            else if (Game1.currentLocation.Name == ModConstants.ContentPackId + "_Mountain_3")
+                CheckMap(new Vector2[] { new(22, 6), new(22, 7) });               
+            else if (Game1.currentLocation.Name == ModConstants.ContentPackId + "_Mountain_4")
+                CheckMap(new Vector2[] { new(1, 17), new(2, 17), new(1, 18), new(2, 18) });   
             else
                 ModConstants.EnemyMapLoaded = EnemyLoadingState.LOADED;
+        }
+
+        /// <summary>
+        /// Check the map for the current monster count, remove the path blockers at a given position and fully load the enemy map if they're all dead.
+        /// </summary>
+        /// <param name="pos">Positions to check and remove any present blockers in</param>
+        private void CheckMap(Vector2[] pos)
+        {
+            monsterCount = Game1.currentLocation.characters.OfType<Monster>().Count();
+            if (monsterCount == 0)
+            {
+                if (Game1.currentLocation.hasTileAt((int)pos[0].X, (int)pos[0].Y, "Buildings"))
+                    foreach (Vector2 tile in pos)
+                        Game1.currentLocation.removeTile((int)tile.X, (int)tile.Y, "Buildings");
+                ModConstants.EnemyMapLoaded = EnemyLoadingState.LOADED;
+            }
         }
 
         public void RenderEnemyLeftHud(object? sender, RenderedHudEventArgs e)
@@ -82,7 +80,7 @@ namespace SmartFellasMod
             if (!currentLocation.Contains("SmartFellas"))
                 return;
             currentLocation = currentLocation.Substring(currentLocation.LastIndexOf("SmartFellas.AscensionCode.Content_") + 34);
-            string[] validLocations = { "Mountain_1", "Mountain_2" };
+            string[] validLocations = { "Mountain_1", "Mountain_2", "Mountain_3", "Mountain_4" };
 
             if (!validLocations.Contains(currentLocation) || monsterCount == 0)
                 return;
