@@ -77,6 +77,11 @@
       "Target": "Maps/{{ModId}}_Mountain_4",
       "FromFile": "Maps/mountain_4.tmx"
     },
+        {
+      "Action": "Load",
+      "Target": "Maps/{{ModId}}_Mountain_Rescue",
+      "FromFile": "Maps/mountain_Rescue.tmx"
+    },
     {
       "Action": "Load",
       "Target": "Maps/{{ModId}}_Mountain_Peak",
@@ -210,6 +215,11 @@
       "{{ModId}}_Mountain_Peak": {
         "CreateOnLoad": {
           "MapPath": "Maps/{{ModId}}_Mountain_Peak"
+        }
+      },      
+      "{{ModId}}_Mountain_Rescue": {
+        "CreateOnLoad": {
+          "MapPath": "Maps/{{ModId}}_Mountain_Rescue"
         }
       },
       "{{ModId}}_Mountain_1": {
