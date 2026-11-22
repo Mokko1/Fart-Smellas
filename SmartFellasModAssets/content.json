@@ -74,6 +74,11 @@
     },
     {
       "Action": "Load",
+      "Target": "Maps/{{ModId}}_Mountain_4",
+      "FromFile": "Maps/mountain_4.tmx"
+    },
+    {
+      "Action": "Load",
       "Target": "Maps/{{ModId}}_Mountain_Peak",
       "FromFile": "Maps/mountain_peak.tmx"
     },
@@ -182,32 +187,37 @@
             "MapPath": "Maps/{{ModId}}_mountain_3"
           }
         },
-        "{{ModId}}_BaseCamp": {
+        "{{ModId}}_Mountain_4": {
           "CreateOnLoad": {
-            "MapPath": "Maps/{{ModId}}_baseCamp"
+            "MapPath": "Maps/{{ModId}}_mountain_4"
           }
         },
-        "{{ModId}}_Tent_Left": {
-          "CreateOnLoad": {
-            "MapPath": "Maps/{{ModId}}_tent_left"
-          }
-        },
-        "{{ModId}}_Tent_Right": {
-          "CreateOnLoad": {
-            "MapPath": "Maps/{{ModId}}_tent_right"
-          }
-        },
-        "{{ModId}}_Mountain_Peak": {
-          "CreateOnLoad": {
-            "MapPath": "Maps/{{ModId}}_Mountain_Peak"
-          }
-        },
-        "{{ModId}}_Mountain_1": {
-          "CreateOnLoad": {
-            "MapPath": "Maps/{{ModId}}_mountain_1"
-          }
+      "{{ModId}}_BaseCamp": {
+        "CreateOnLoad": {
+          "MapPath": "Maps/{{ModId}}_baseCamp"
+        }
+      },
+      "{{ModId}}_Tent_Left": {
+        "CreateOnLoad": {
+          "MapPath": "Maps/{{ModId}}_tent_left"
+        }
+      },
+      "{{ModId}}_Tent_Right": {
+        "CreateOnLoad": {
+          "MapPath": "Maps/{{ModId}}_tent_right"
+        }
+      },
+      "{{ModId}}_Mountain_Peak": {
+        "CreateOnLoad": {
+          "MapPath": "Maps/{{ModId}}_Mountain_Peak"
+        }
+      },
+      "{{ModId}}_Mountain_1": {
+        "CreateOnLoad": {
+          "MapPath": "Maps/{{ModId}}_mountain_1"
         }
       }
+    }
     },
     {
       "Action": "Load",

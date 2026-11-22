@@ -3,7 +3,7 @@
  <properties>
   <property name="LocationContext" value="SmartFellas.AscensionCode.Content_AlwaysSnow"/>
   <property name="Outdoors" type="bool" value="true"/>
-  <property name="OxygenDeprivation" type="float" value="0.8"/>
+  <property name="OxygenDeprivation" type="float" value="0.15"/>
   <property name="Warp" value="10 29 SmartFellas.AscensionCode.Content_BaseCamp 38 25 10 30 SmartFellas.AscensionCode.Content_BaseCamp 38 25 38 0 SmartFellas.AscensionCode.Content_Mountain_2 39 30 39 0 SmartFellas.AscensionCode.Content_Mountain_2 39 30 40 0 SmartFellas.AscensionCode.Content_Mountain_2 39 30"/>
  </properties>
  <tileset firstgid="1" source="spring_outdoorsTileSheet.tsx"/>
