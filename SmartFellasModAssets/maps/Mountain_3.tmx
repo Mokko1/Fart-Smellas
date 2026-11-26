@@ -4,7 +4,7 @@
   <property name="LocationContext" value="SmartFellas.AscensionCode.Content_AlwaysSnow"/>
   <property name="Outdoors" type="bool" value="true"/>
   <property name="OxygenDeprivation" type="float" value="1.1"/>
-  <property name="Warp" value="23 31 SmartFellas.AscensionCode.Content_Mountain_2 7 1 24 31 SmartFellas.AscensionCode.Content_Mountain_2 7 1 25 31 SmartFellas.AscensionCode.Content_Mountain_2 7 1 21 0 SmartFellas.AscensionCode.Content_Mountain_Peak 21 30 22 0 SmartFellas.AscensionCode.Content_Mountain_Peak 21 30 23 0 SmartFellas.AscensionCode.Content_Mountain_Peak 21 30"/>
+  <property name="Warp" value="23 31 SmartFellas.AscensionCode.Content_Mountain_2 7 1 24 31 SmartFellas.AscensionCode.Content_Mountain_2 7 1 25 31 SmartFellas.AscensionCode.Content_Mountain_2 7 1 21 0 SmartFellas.AscensionCode.Content_Mountain_4 1 30 22 0 SmartFellas.AscensionCode.Content_Mountain_4 2 30 23 0 SmartFellas.AscensionCode.Content_Mountain_4 3 30"/>
  </properties>
  <tileset firstgid="1" source="spring_outdoorsTileSheet.tsx"/>
  <tileset firstgid="1976" source="winter_outdoorsTileSheet.tsx"/>
@@ -98,8 +98,8 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2270,2444,2443,3609,0,3611,2444,2443,2266,2267,0,0,0,0,0,0,0,0,0,0,2467,2469,3743,3744,3745,3746,2468,2469,2470,0,
 2414,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2295,2469,2468,3634,0,3636,2469,2468,2291,2417,0,0,0,0,0,0,0,0,0,0,2492,2494,3768,3769,3770,3771,2493,2494,2495,0,
 2388,2389,2390,2414,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2320,2494,2493,3659,0,3661,2494,2493,0,2442,2443,2444,2266,2267,0,0,0,0,0,0,2517,2519,3793,0,0,3796,2518,2519,2520,0,
-0,0,0,2388,2389,2390,2414,0,0,0,0,0,0,0,0,0,0,0,2345,2519,2518,3684,0,3686,2519,2518,0,2467,2468,2469,2291,2417,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,2420,0,0,0,0,0,0,0,0,2270,2271,2444,2445,0,0,0,0,0,0,0,0,2492,2493,2494,2316,2442,2443,2266,2267,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2388,2389,2390,2414,0,0,0,0,0,0,0,0,0,0,0,2345,2519,2518,3684,2076,3686,2519,2518,0,2467,2468,2469,2291,2417,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,2420,0,0,0,0,0,0,0,0,2270,2271,2444,2445,0,0,0,2103,0,0,0,0,2492,2493,2494,2316,2442,2443,2266,2267,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,2270,2271,2445,0,0,0,0,0,0,0,0,2295,2296,2469,2470,0,0,0,0,0,0,0,0,2517,2518,2519,2341,2467,2468,2469,2417,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,2295,2296,2470,0,0,0,0,0,0,0,0,2320,2321,2494,2495,0,0,0,0,0,0,0,0,0,0,0,0,2492,2493,2494,2495,2443,2444,2443,2440,2416,0,0,0,0,0,0,0,0,
 0,0,0,0,2320,2321,2495,0,0,0,0,0,0,0,0,2345,2346,2519,2520,0,0,0,2415,2389,2389,2390,2390,2414,0,0,0,2517,2518,2519,2520,2468,2469,2466,2465,2441,2443,2443,2444,2443,2443,2443,2444,2443,

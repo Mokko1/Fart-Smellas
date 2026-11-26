@@ -1,0 +1,5 @@
+To place this save into Stardew for use while testing:
+
+1. Copy the four files in this folder
+2. Navigate to "C:\Users\NAME\AppData\Roaming\StardewValley\Saves"
+3. Paste the four files into the save you want to overwrite (to create a new one you must make a new folder for it)
